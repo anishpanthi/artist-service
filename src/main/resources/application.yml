@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: music-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/music
+    username: admin
+    password: admin
+  jpa:
+    open-in-view: false
+  docker:
+    compose:
+      lifecycle-management: start_only
+  sql:
+    init:
+      mode: always
