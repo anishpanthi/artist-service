@@ -23,7 +23,7 @@ spring:
             client-secret: wxM8Q~SVxZnjHk._Xt480jiEf8pLbbKQHVIEcaWw
             client-name: Microsoft Entra ID (Azure AD)
             scope: openid, profile, email, offline_access
-            redirect-uri: http://localhost:8080/login/oauth2/code/azuread
+            redirect-uri: https://artist-service-production.up.railway.app/login/oauth2/code/azuread
 
 
 management:
