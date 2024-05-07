@@ -3,10 +3,46 @@ spring:
     name: music-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/music
-    username: admin
-    password: admin
+    url: jdbc:postgresql://monorail.proxy.rlwy.net:54849/railway
+    username: postgres
+    password: iQMNbGTUfPfESkeIXrTwbUyfCXzaoIOe
   jpa:
     open-in-view: false
     properties:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        provider:
+          azure-entra:
+            issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
+        registration:
+          azure-entra:
+            provider: azure-entra
+            client-id: 3e9eced8-0b9d-4027-99fe-f986994aba8b
+            client-secret: wxM8Q~SVxZnjHk._Xt480jiEf8pLbbKQHVIEcaWw
+            client-name: Microsoft Entra ID (Azure AD)
+            scope: openid, profile, email, offline_access
+            redirect-uri: http://localhost:8080/login/oauth2/code/azuread
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: https://zipkin.railway.internal
