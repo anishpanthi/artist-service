@@ -42,10 +42,9 @@ management:
   tracing:
     sampling:
       probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: https://zipkin-production-dc4a.up.railway.app
-
+#  zipkin:
+#    tracing:
+#      endpoint: https://zipkin-production-dc4a.up.railway.app
 logging:
   level:
     root: info
