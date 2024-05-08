@@ -1,6 +1,6 @@
 spring:
   application:
-    name: music-service
+    name: artist-service
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://monorail.proxy.rlwy.net:54849/railway
@@ -25,7 +25,6 @@ spring:
             scope: openid, profile, email, offline_access
             redirect-uri: https://artist-service-production.up.railway.app/login/oauth2/code/azuread
 
-
 management:
   endpoint:
     health:
@@ -45,4 +44,9 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: https://zipkin-production-dc4a.up.railway.app
+      endpoint: https://zipkin-production-dc4a.up.railway.app:9411
+
+logging:
+  level:
+    root: info
+    zipkin2: debug
