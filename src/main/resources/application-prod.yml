@@ -45,4 +45,4 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: https://zipkin.railway.internal
+      endpoint: https://zipkin-production-dc4a.up.railway.app
