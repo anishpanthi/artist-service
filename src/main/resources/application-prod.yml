@@ -48,4 +48,4 @@ management:
 logging:
   level:
     root: info
-    zipkin2: debug
+#    zipkin2: debug
