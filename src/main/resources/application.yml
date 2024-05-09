@@ -1,6 +1,6 @@
 spring:
   application:
-    name: music-service
+    name: artist-service
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/music
@@ -28,3 +28,5 @@ spring:
             client-name: Microsoft Entra ID (Azure AD)
             scope: openid, profile, email, offline_access
             redirect-uri: http://localhost:8080/login/oauth2/code/azuread
+
+# -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
