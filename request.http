@@ -2,5 +2,29 @@
 GET http://localhost:8080/api/artists
 ###
 
-GET http://localhost:8080/api/artists/1
+GET http://localhost:8080/api/artists/2
+###
+
+POST http://localhost:8080/api/artists
+Content-Type: application/json
+
+{
+  "name": "David Guetta",
+  "genre": "EDM",
+  "origin": "France"
+}
+###
+
+PUT http://localhost:8080/api/artists/2
+Content-Type: application/json
+
+{
+  "name": "David Guetta",
+  "genre": "Electronic Dance Music",
+  "origin": "France"
+}
+###
+
+DELETE http://localhost:8080/api/artists/2
+
 ###
