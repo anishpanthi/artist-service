@@ -42,6 +42,9 @@ management:
     metrics:
       export:
         enabled: true
+        pushgateway:
+          base-url: https://railway-prometheus-production-da5c.up.railway.app
+          enabled: true
   tracing:
     sampling:
       probability: 1.0
@@ -53,3 +56,4 @@ logging:
     root: info
     org.springframework.web: debug
 #    zipkin2: debug
+
