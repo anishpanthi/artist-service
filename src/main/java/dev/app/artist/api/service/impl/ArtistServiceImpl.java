@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Log4j2
-@Observed(name = "artist_repository")
 public class ArtistServiceImpl implements ArtistService {
 
   private final JdbcClient jdbcClient;
@@ -25,7 +24,7 @@ public class ArtistServiceImpl implements ArtistService {
     this.jdbcClient = jdbcClient;
   }
 
-  @Observed(contextualName = "findOne")
+  @Observed(name = "artist_service", contextualName = "findOne")
   @Override
   public Optional<Artist> findOne(Long id) {
     log.info("Fetching artist with id: {}", id);
@@ -36,7 +35,7 @@ public class ArtistServiceImpl implements ArtistService {
         .optional();
   }
 
-  @Observed(contextualName = "save")
+  @Observed(name = "artist_service", contextualName = "save")
   @Override
   public ApiResponse create(Artist artist) {
     int result =
@@ -53,7 +52,7 @@ public class ArtistServiceImpl implements ArtistService {
     }
   }
 
-  @Observed(contextualName = "update")
+  @Observed(name = "artist_service", contextualName = "update")
   @Override
   public ApiResponse update(Artist artist, Long id) {
     int result =
@@ -70,7 +69,7 @@ public class ArtistServiceImpl implements ArtistService {
     }
   }
 
-  @Observed(contextualName = "delete")
+  @Observed(name = "artist_service", contextualName = "delete")
   @Override
   public ApiResponse delete(Long id) {
     log.info("Deleting artist with id: {}", id);
@@ -86,7 +85,7 @@ public class ArtistServiceImpl implements ArtistService {
     }
   }
 
-  @Observed(contextualName = "findAll")
+  @Observed(name = "artist_service", contextualName = "findAll")
   @Override
   public List<Artist> findAll() {
     log.info("Fetching all artists");
