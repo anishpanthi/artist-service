@@ -6,8 +6,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/music
     username: admin
     password: admin
-  jpa:
-    open-in-view: false
   docker:
     compose:
       lifecycle-management: start_only
@@ -16,3 +14,9 @@ spring:
       mode: always
 
 # -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+
+logging:
+  level:
+    root: info
+    org.springframework.web: debug
+    org.springframework.jdbc: debug
