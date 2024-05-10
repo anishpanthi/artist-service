@@ -50,7 +50,7 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: https://zipkin.railway.internal:9411
+      endpoint: http://zipkin.railway.internal:9411/api/v2/spans
 logging:
   level:
     root: info
