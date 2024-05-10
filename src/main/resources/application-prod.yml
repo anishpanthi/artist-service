@@ -50,7 +50,7 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: https://zipkin.up.railway.app
+      endpoint: https://zipkin.up.railway.app:9411
 logging:
   level:
     root: info
