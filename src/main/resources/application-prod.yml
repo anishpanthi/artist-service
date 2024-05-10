@@ -24,6 +24,9 @@ spring:
             client-name: Microsoft Entra ID (Azure AD)
             scope: openid, profile, email, offline_access
             redirect-uri: https://artist-service-production.up.railway.app/login/oauth2/code/azuread
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
 
 management:
   endpoint:
@@ -42,10 +45,11 @@ management:
   tracing:
     sampling:
       probability: 1.0
-#  zipkin:
-#    tracing:
-#      endpoint: https://zipkin-production-dc4a.up.railway.app
+  zipkin:
+    tracing:
+      endpoint: https://zipkin.up.railway.app
 logging:
   level:
     root: info
+    org.springframework.web: debug
 #    zipkin2: debug
