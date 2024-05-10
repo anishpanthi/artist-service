@@ -6,10 +6,6 @@ spring:
     url: jdbc:postgresql://monorail.proxy.rlwy.net:54849/railway
     username: postgres
     password: iQMNbGTUfPfESkeIXrTwbUyfCXzaoIOe
-  jpa:
-    open-in-view: false
-    properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
   security:
     oauth2:
       client:
@@ -55,5 +51,4 @@ logging:
   level:
     root: info
     org.springframework.web: debug
-#    zipkin2: debug
-
+    org.springframework.jdbc: debug
