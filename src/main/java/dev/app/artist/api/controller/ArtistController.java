@@ -3,9 +3,8 @@ package dev.app.artist.api.controller;
 import dev.app.artist.api.dto.ApiResponse;
 import dev.app.artist.api.entity.Artist;
 import dev.app.artist.api.service.ArtistService;
-import java.util.List;
-
 import io.micrometer.observation.annotation.Observed;
+import java.util.List;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

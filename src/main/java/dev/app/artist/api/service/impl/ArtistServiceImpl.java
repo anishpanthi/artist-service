@@ -3,6 +3,7 @@ package dev.app.artist.api.service.impl;
 import dev.app.artist.api.dto.ApiResponse;
 import dev.app.artist.api.entity.Artist;
 import dev.app.artist.api.service.ArtistService;
+import io.micrometer.observation.annotation.Observed;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Log4j2
+@Observed(name = "artist_repository")
 public class ArtistServiceImpl implements ArtistService {
 
   private final JdbcClient jdbcClient;
@@ -23,17 +25,25 @@ public class ArtistServiceImpl implements ArtistService {
     this.jdbcClient = jdbcClient;
   }
 
+  @Observed(contextualName = "findOne")
   @Override
   public Optional<Artist> findOne(Long id) {
     log.info("Fetching artist with id: {}", id);
-    return jdbcClient.sql("SELECT id,name,genre,origin FROM artist WHERE id = :id")
+    return jdbcClient
+        .sql("SELECT id,name,genre,origin FROM artist WHERE id = :id")
         .param("id", id)
-        .query(Artist.class).optional();
+        .query(Artist.class)
+        .optional();
   }
 
+  @Observed(contextualName = "save")
+  @Override
   public ApiResponse create(Artist artist) {
-    int result = jdbcClient.sql("INSERT INTO artist(name,genre,origin) values(?,?,?)")
-        .params(List.of(artist.name(), artist.genre(), artist.origin())).update();
+    int result =
+        jdbcClient
+            .sql("INSERT INTO artist(name,genre,origin) values(?,?,?)")
+            .params(List.of(artist.name(), artist.genre(), artist.origin()))
+            .update();
     if (result == 1) {
       log.info("Artist created successfully");
       return new ApiResponse(LocalDateTime.now(), "Artist created successfully");
@@ -43,10 +53,14 @@ public class ArtistServiceImpl implements ArtistService {
     }
   }
 
+  @Observed(contextualName = "update")
   @Override
   public ApiResponse update(Artist artist, Long id) {
-    int result = jdbcClient.sql("update artist set name = ?, genre = ?, origin = ? where id = ?")
-        .params(List.of(artist.name(), artist.genre(), artist.origin(), id)).update();
+    int result =
+        jdbcClient
+            .sql("update artist set name = ?, genre = ?, origin = ? where id = ?")
+            .params(List.of(artist.name(), artist.genre(), artist.origin(), id))
+            .update();
     if (result > 0) {
       log.info("Artist updated successfully");
       return new ApiResponse(LocalDateTime.now(), "Artist updated successfully");
@@ -56,6 +70,7 @@ public class ArtistServiceImpl implements ArtistService {
     }
   }
 
+  @Observed(contextualName = "delete")
   @Override
   public ApiResponse delete(Long id) {
     log.info("Deleting artist with id: {}", id);
@@ -71,6 +86,7 @@ public class ArtistServiceImpl implements ArtistService {
     }
   }
 
+  @Observed(contextualName = "findAll")
   @Override
   public List<Artist> findAll() {
     log.info("Fetching all artists");

@@ -5,6 +5,4 @@ import java.time.LocalDateTime;
 /**
  * @author Anish Panthi
  */
-public record ApiResponse(LocalDateTime timestamp, String message) {
-
-}
+public record ApiResponse(LocalDateTime timestamp, String message) {}
