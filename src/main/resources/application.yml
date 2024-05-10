@@ -6,8 +6,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/music
     username: admin
     password: admin
-  jpa:
-    open-in-view: false
   docker:
     compose:
       lifecycle-management: start_only
@@ -50,3 +48,9 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+logging:
+  level:
+    root: info
+    org.springframework.web: debug
+    org.springframework.jdbc: debug
