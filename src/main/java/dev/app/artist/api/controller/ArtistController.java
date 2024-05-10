@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/artists")
 @Log4j2
+@Observed(name = "artist_controller", contextualName = "artist_controller")
 public class ArtistController {
 
   private static final String CLIENT_REGISTRATION_ID = "azure-entra";
@@ -43,7 +44,6 @@ public class ArtistController {
     this.authorizedClientRepository = authorizedClientRepository;
   }
 
-  @Observed(name = "artist_controller", contextualName = "get_artist_by_id")
   @GetMapping("/{id}")
   public ResponseEntity<Artist> getArtist(@PathVariable Long id) {
     return new ResponseEntity<>(
@@ -53,7 +53,6 @@ public class ArtistController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  @Observed(name = "artist_controller", contextualName = "get_all_artists")
   public List<Artist> getArtists() {
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     if (principal instanceof OAuth2User) {
@@ -76,21 +75,18 @@ public class ArtistController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  @Observed(name = "artist_controller", contextualName = "create_artist")
   public ApiResponse createArtist(@RequestBody Artist artist) {
     return artistService.create(artist);
   }
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  @Observed(name = "artist_controller", contextualName = "update_artist")
   public ApiResponse updateArtist(@RequestBody Artist artist, @PathVariable Long id) {
     return artistService.update(artist, id);
   }
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  @Observed(name = "artist_controller", contextualName = "delete_artist")
   public ApiResponse deleteArtist(@PathVariable Long id) {
     return artistService.delete(id);
   }
