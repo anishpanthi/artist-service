@@ -1,16 +1,56 @@
 spring:
   application:
-    name: music-service
+    name: artist-service
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/music
     username: admin
     password: admin
-  jpa:
-    open-in-view: false
   docker:
     compose:
       lifecycle-management: start_only
   sql:
     init:
       mode: always
+  security:
+    oauth2:
+      client:
+        provider:
+          azure-entra:
+            issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
+        registration:
+          azure-entra:
+            provider: azure-entra
+            client-id: 3e9eced8-0b9d-4027-99fe-f986994aba8b
+            client-secret: wxM8Q~SVxZnjHk._Xt480jiEf8pLbbKQHVIEcaWw
+            client-name: Microsoft Entra ID (Azure AD)
+            scope: openid, profile, email, offline_access
+            redirect-uri: http://localhost:8080/login/oauth2/code/azuread
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
+
+# -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+management:
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+logging:
+  level:
+    root: info
+    org.springframework.web: debug
+    org.springframework.jdbc: debug
