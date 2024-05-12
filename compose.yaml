@@ -11,3 +11,7 @@ services:
     image: 'openzipkin/zipkin:latest'
     ports:
       - '9411:9411'
+  jaeger-tracing:
+    image: 'jaegertracing/all-in-one:latest'
+    ports:
+      - '16686:16686'
