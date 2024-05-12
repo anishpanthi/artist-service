@@ -34,8 +34,8 @@ dependencies {
     implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
     implementation 'io.micrometer:micrometer-tracing-bridge-brave'
     implementation 'io.micrometer:micrometer-registry-prometheus'
-    implementation 'io.opentelemetry:opentelemetry-exporter-jaeger:1.34.1'
-    implementation 'io.opentelemetry:opentelemetry-exporter-zipkin:1.38.0'
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp-trace:1.14.0'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

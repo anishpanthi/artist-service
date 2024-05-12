@@ -15,3 +15,7 @@ services:
     image: 'jaegertracing/all-in-one:latest'
     ports:
       - '16686:16686'
+  otel-collector:
+    image: 'otel/opentelemetry-collector'
+    ports:
+      - '4317:4317'

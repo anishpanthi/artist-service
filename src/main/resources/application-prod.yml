@@ -47,6 +47,11 @@ management:
   zipkin:
     tracing:
       endpoint: http://zipkin.railway.internal:9411/api/v2/spans
+#  otlp:
+#    metrics:
+#      export:
+#        enabled: true
+#        url: http://localhost:4317
 logging:
   level:
     root: info
