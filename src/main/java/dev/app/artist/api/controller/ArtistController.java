@@ -8,11 +8,6 @@ import java.util.List;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
-import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository;
-import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,16 +27,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Observed(name = "artist_controller", contextualName = "artist_controller")
 public class ArtistController {
 
-  private static final String CLIENT_REGISTRATION_ID = "azure-entra";
-
   private final ArtistService artistService;
 
-  private final OAuth2AuthorizedClientRepository authorizedClientRepository;
-
   public ArtistController(
-      ArtistService artistService, OAuth2AuthorizedClientRepository authorizedClientRepository) {
+      ArtistService artistService) {
     this.artistService = artistService;
-    this.authorizedClientRepository = authorizedClientRepository;
   }
 
   @GetMapping("/{id}")
@@ -54,22 +44,6 @@ public class ArtistController {
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public List<Artist> getArtists() {
-    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    if (principal instanceof OAuth2User) {
-      OAuth2AuthorizedClient client =
-          authorizedClientRepository.loadAuthorizedClient(
-              CLIENT_REGISTRATION_ID, SecurityContextHolder.getContext().getAuthentication(), null);
-      log.info("Access Token: {}", client.getAccessToken().getTokenValue());
-      log.info(
-          "Refresh Token: {}",
-          client.getRefreshToken() == null
-              ? "Refresh token not received"
-              : client.getRefreshToken().getTokenValue());
-    } else if (principal instanceof Jwt jwt) {
-      log.info("API User: {}", jwt.getClaims());
-    } else {
-      log.info("Unknown User: {}", principal);
-    }
     return artistService.findAll();
   }
 
