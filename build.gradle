@@ -32,10 +32,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
     implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
-    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
-    implementation 'io.micrometer:micrometer-registry-prometheus'
+//    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+//    implementation 'io.micrometer:micrometer-registry-prometheus'
+//    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+//    implementation 'io.opentelemetry:opentelemetry-exporter-zipkin'
+//    implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+//    implementation 'io.opentelemetry:opentelemetry-exporter-otlp-trace:1.14.0'
+
+    implementation 'io.micrometer:micrometer-tracing'
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
-    implementation 'io.opentelemetry:opentelemetry-exporter-otlp-trace:1.14.0'
+
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
