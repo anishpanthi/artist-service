@@ -57,3 +57,4 @@ logging:
     root: info
     org.springframework.web: debug
     org.springframework.jdbc: debug
+#  config: classpath:log4j2.yml
