@@ -57,4 +57,9 @@ logging:
     root: info
     org.springframework.web: debug
     org.springframework.jdbc: debug
+<<<<<<< Updated upstream
 #  config: classpath:log4j2.yml
+=======
+
+server.port: 8081
+>>>>>>> Stashed changes
