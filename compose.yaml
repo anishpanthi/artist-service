@@ -2,6 +2,7 @@ services:
   postgres:
     image: 'postgres:latest'
     container_name: 'postgres'
+    restart: unless-stopped
     environment:
       - 'POSTGRES_DB=music'
       - 'POSTGRES_PASSWORD=admin'
@@ -11,6 +12,7 @@ services:
   jaeger-tracing:
     image: 'jaegertracing/all-in-one:latest'
     container_name: 'jaeger'
+    restart: unless-stopped
     ports:
       - '16686:16686'
       - '4317:4317'
