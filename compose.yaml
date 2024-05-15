@@ -8,6 +8,7 @@ services:
       - 'POSTGRES_USER=admin'
     ports:
       - '5431:5432'
+
   jaeger-tracing:
     image: 'jaegertracing/all-in-one:latest'
     container_name: 'jaeger'
@@ -15,6 +16,7 @@ services:
       - '16686:16686'
       - '4317:4317'
       - '4318:4318'
+
   prometheus:
     image: 'prom/prometheus:latest'
     container_name: 'prometheus'
@@ -25,6 +27,7 @@ services:
       - ./src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+
   grafana:
     image: 'grafana/grafana:latest'
     container_name: 'grafana'
@@ -36,3 +39,49 @@ services:
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SERVER_DOMAIN=localhost
+
+  elastic:
+    image: 'elasticsearch:7.17.21'
+    container_name: 'elasticsearch'
+    restart: unless-stopped
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    networks:
+      - elk-network
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+
+  logstash:
+    image: 'logstash:7.17.21'
+    container_name: 'logstash'
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+      - '9600:9600'
+    volumes:
+      - ./src/main/resources/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./src/main/resources:/usr/share/logstash/config
+      - ./logs:/usr/share/logstash/logs
+      - ./src/main/resources/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    command: [ "-f", "/usr/share/logstash/config/logstash.conf" ]
+#    depends_on:
+#      - elasticsearch
+    networks:
+      - elk-network
+
+  kibana:
+    image: 'kibana:7.17.21'
+    container_name: 'kibana'
+    restart: unless-stopped
+    ports:
+      - '5601:5601'
+#    depends_on:
+#      - logstash
+    networks:
+      - elk-network
+
+networks:
+  elk-network:
+    driver: bridge

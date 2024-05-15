@@ -1,0 +1,673 @@
+2024-05-14T22:08:46.224-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 40117 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:08:46.225-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:08:46.284-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:08:47.177-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2024-05-14T22:08:49.852-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-05-14T22:08:49.869-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-05-14T22:08:49.869-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-14T22:08:49.926-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-05-14T22:08:49.926-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1711 ms
+2024-05-14T22:08:50.483-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-14T22:08:50.539-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:08:50.542-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-05-14T22:08:50.692-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4dd4965a
+2024-05-14T22:08:50.693-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-05-14T22:08:50.697-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : Executing SQL script from file [/Users/anishpanthi/IdeaProjects/artist-service/build/resources/main/schema.sql]
+2024-05-14T22:08:50.702-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-05-14T22:08:50.704-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-05-14T22:08:50.705-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : Executed SQL script from file [/Users/anishpanthi/IdeaProjects/artist-service/build/resources/main/schema.sql] in 7 ms.
+2024-05-14T22:08:50.885-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : HTTP GET https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0/.well-known/openid-configuration
+2024-05-14T22:08:50.892-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : Accept=[application/json, application/*+json]
+2024-05-14T22:08:51.775-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : Response 200 OK
+2024-05-14T22:08:51.781-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : Reading to [java.util.Map<java.lang.String, java.lang.Object>]
+2024-05-14T22:08:52.236-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2024-05-14T22:08:52.347-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-14T22:08:52.596-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-05-14T22:08:52.726-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ca2a03f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a7c72af, org.springframework.security.web.context.SecurityContextHolderFilter@5e663ab, org.springframework.security.web.header.HeaderWriterFilter@7a7f2247, org.springframework.web.filter.CorsFilter@3e24bab6, org.springframework.security.web.csrf.CsrfFilter@237c8718, org.springframework.security.web.authentication.logout.LogoutFilter@7d216ee8, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5216532a, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@6761f75b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4d9bccfe, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2ba9ed19, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@65d2d3cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d641499, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71891d6b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3293030b, org.springframework.security.web.access.ExceptionTranslationFilter@152dbf8e, org.springframework.security.web.access.intercept.AuthorizationFilter@5c43cb12]
+2024-05-14T22:08:52.796-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-14T22:08:52.848-05:00 DEBUG 40117 --- [artist-service] [main] [                                                 ] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-14T22:08:53.225-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-05-14T22:08:53.240-05:00  INFO 40117 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Started ArtistServiceApplication in 7.52 seconds (process running for 8.72)
+2024-05-14T22:08:53.267-05:00  INFO 40117 --- [artist-service] [main] [278ff50da2cdde0d86585af9402ba5b0-983d630e8a955876] d.a.a.a.s.i.ArtistServiceImpl            : Fetching all artists
+2024-05-14T22:08:53.271-05:00 DEBUG 40117 --- [artist-service] [main] [278ff50da2cdde0d86585af9402ba5b0-983d630e8a955876] o.s.j.c.JdbcTemplate                     : Executing prepared SQL query
+2024-05-14T22:08:53.271-05:00 DEBUG 40117 --- [artist-service] [main] [278ff50da2cdde0d86585af9402ba5b0-983d630e8a955876] o.s.j.c.JdbcTemplate                     : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-05-14T22:08:53.271-05:00 DEBUG 40117 --- [artist-service] [main] [278ff50da2cdde0d86585af9402ba5b0-983d630e8a955876] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:08:53.512-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(2)-127.0.0.1] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:08:53.518-05:00  INFO 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-14T22:08:53.518-05:00  INFO 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-05-14T22:08:53.518-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2024-05-14T22:08:53.518-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2024-05-14T22:08:53.518-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2024-05-14T22:08:53.523-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@53bf88cc
+2024-05-14T22:08:53.524-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@71887266
+2024-05-14T22:08:53.524-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-14T22:08:53.524-05:00  INFO 40117 --- [artist-service] [RMI TCP Connection(3)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms
+2024-05-14T22:08:53.528-05:00 DEBUG 40117 --- [artist-service] [RMI TCP Connection(2)-127.0.0.1] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:08:58.005-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-1] [8a1388366b1741e396e3cf95e6ba8952-1cc4059b9bf353ec] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:08:58.023-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-1] [8a1388366b1741e396e3cf95e6ba8952-1cc4059b9bf353ec] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:08:58.057-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-1] [8a1388366b1741e396e3cf95e6ba8952-1cc4059b9bf353ec] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:08:58.058-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-1] [8a1388366b1741e396e3cf95e6ba8952-1cc4059b9bf353ec] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE jvm_gc_live_data_size_bytes gauge<EOL># HELP jvm_gc_live_data_size_bytes Size of long-lived heap  (truncated)..."]
+2024-05-14T22:08:58.062-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-1] [8a1388366b1741e396e3cf95e6ba8952-1cc4059b9bf353ec] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:09:02.919-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-2] [c43720b181498c92c2f4daa901e33778-635bad6774fb4463] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:09:02.920-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-2] [c43720b181498c92c2f4daa901e33778-635bad6774fb4463] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:09:02.927-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-2] [c43720b181498c92c2f4daa901e33778-635bad6774fb4463] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:09:02.927-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-2] [c43720b181498c92c2f4daa901e33778-635bad6774fb4463] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE jvm_compilation_time_ms counter<EOL># HELP jvm_compilation_time_ms The approximate accumulated el (truncated)..."]
+2024-05-14T22:09:02.928-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-2] [c43720b181498c92c2f4daa901e33778-635bad6774fb4463] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:09:07.916-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-3] [44fbea6cc460686a651d00f955f1db12-cf73b8899d108ddb] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:09:07.917-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-3] [44fbea6cc460686a651d00f955f1db12-cf73b8899d108ddb] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:09:07.921-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-3] [44fbea6cc460686a651d00f955f1db12-cf73b8899d108ddb] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:09:07.921-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-3] [44fbea6cc460686a651d00f955f1db12-cf73b8899d108ddb] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE jvm_compilation_time_ms counter<EOL># HELP jvm_compilation_time_ms The approximate accumulated el (truncated)..."]
+2024-05-14T22:09:07.922-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-3] [44fbea6cc460686a651d00f955f1db12-cf73b8899d108ddb] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:09:12.917-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-4] [46e902dfd84349593fc62fd3e89e8cf3-d37a1e4ae1604cd5] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:09:12.918-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-4] [46e902dfd84349593fc62fd3e89e8cf3-d37a1e4ae1604cd5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:09:12.922-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-4] [46e902dfd84349593fc62fd3e89e8cf3-d37a1e4ae1604cd5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:09:12.922-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-4] [46e902dfd84349593fc62fd3e89e8cf3-d37a1e4ae1604cd5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE jvm_compilation_time_ms counter<EOL># HELP jvm_compilation_time_ms The approximate accumulated el (truncated)..."]
+2024-05-14T22:09:12.923-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-4] [46e902dfd84349593fc62fd3e89e8cf3-d37a1e4ae1604cd5] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:09:17.917-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-5] [1adc5d5c73a3ebc9565097162c40df9d-132b804459a3137c] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:09:17.917-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-5] [1adc5d5c73a3ebc9565097162c40df9d-132b804459a3137c] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:09:17.921-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-5] [1adc5d5c73a3ebc9565097162c40df9d-132b804459a3137c] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:09:17.921-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-5] [1adc5d5c73a3ebc9565097162c40df9d-132b804459a3137c] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE jvm_compilation_time_ms counter<EOL># HELP jvm_compilation_time_ms The approximate accumulated el (truncated)..."]
+2024-05-14T22:09:17.922-05:00 DEBUG 40117 --- [artist-service] [http-nio-8080-exec-5] [1adc5d5c73a3ebc9565097162c40df9d-132b804459a3137c] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:09:20.368-05:00  INFO 40117 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-05-14T22:09:20.372-05:00  INFO 40117 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-05-14T22:24:47.610-05:00  INFO 40958 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 40958 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:24:47.611-05:00  INFO 40958 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:24:47.680-05:00  INFO 40958 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:24:48.570-05:00 ERROR 40958 --- [artist-service] [main] [                                                 ] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file /Users/anishpanthi/IdeaProjects/artist-service/compose.yaml --ansi never config --format=json' failed with exit code 15.
+
+Stdout:
+
+
+Stderr:
+service "logstash" depends on undefined service "elasticsearch": invalid compose project
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:96) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:80) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.hasDefinedServices(DefaultDockerCompose.java:71) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:111) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:432) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13) ~[main/:?]
+
+2024-05-14T22:26:02.524-05:00  INFO 41025 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 41025 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:26:02.525-05:00  INFO 41025 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:26:02.580-05:00  INFO 41025 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:26:03.125-05:00 ERROR 41025 --- [artist-service] [main] [                                                 ] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file /Users/anishpanthi/IdeaProjects/artist-service/compose.yaml --ansi never config --format=json' failed with exit code 15.
+
+Stdout:
+
+
+Stderr:
+service "logstash" depends on undefined service "elasticsearch": invalid compose project
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:96) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:80) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.hasDefinedServices(DefaultDockerCompose.java:71) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:111) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:432) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13) ~[main/:?]
+
+2024-05-14T22:28:02.334-05:00  INFO 41153 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 41153 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:28:02.335-05:00  INFO 41153 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:28:02.404-05:00  INFO 41153 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:28:03.417-05:00 ERROR 41153 --- [artist-service] [main] [                                                 ] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file /Users/anishpanthi/IdeaProjects/artist-service/compose.yaml --ansi never config --format=json' failed with exit code 15.
+
+Stdout:
+
+
+Stderr:
+service "logstash" depends on undefined service "elasticsearch": invalid compose project
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:96) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:80) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.hasDefinedServices(DefaultDockerCompose.java:71) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:111) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:432) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13) ~[main/:?]
+
+2024-05-14T22:29:11.241-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 41220 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:29:11.242-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:29:11.299-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:29:12.165-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2024-05-14T22:29:15.109-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-05-14T22:29:15.139-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-05-14T22:29:15.139-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-14T22:29:15.203-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-05-14T22:29:15.203-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2007 ms
+2024-05-14T22:29:15.818-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-14T22:29:15.878-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:29:15.880-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-05-14T22:29:16.038-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2cd5b19c
+2024-05-14T22:29:16.040-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-05-14T22:29:16.045-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : Executing SQL script from file [/Users/anishpanthi/IdeaProjects/artist-service/build/resources/main/schema.sql]
+2024-05-14T22:29:16.051-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-05-14T22:29:16.054-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-05-14T22:29:16.054-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : Executed SQL script from file [/Users/anishpanthi/IdeaProjects/artist-service/build/resources/main/schema.sql] in 9 ms.
+2024-05-14T22:29:16.231-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : HTTP GET https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0/.well-known/openid-configuration
+2024-05-14T22:29:16.236-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : Accept=[application/json, application/*+json]
+2024-05-14T22:29:16.578-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : Response 200 OK
+2024-05-14T22:29:16.584-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.w.c.RestTemplate                     : Reading to [java.util.Map<java.lang.String, java.lang.Object>]
+2024-05-14T22:29:16.912-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2024-05-14T22:29:17.028-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-14T22:29:17.271-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-05-14T22:29:17.440-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b53e6fc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@391e2a, org.springframework.security.web.context.SecurityContextHolderFilter@634d3439, org.springframework.security.web.header.HeaderWriterFilter@5e663ab, org.springframework.web.filter.CorsFilter@641cea11, org.springframework.security.web.csrf.CsrfFilter@75b3ef1a, org.springframework.security.web.authentication.logout.LogoutFilter@a20898c, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7c8a91e2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34ff08c6, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@435a2c7d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4e3d36c2, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@4a7c72af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56820446, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67e21ea2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4add4dff, org.springframework.security.web.access.ExceptionTranslationFilter@7a7f2247, org.springframework.security.web.access.intercept.AuthorizationFilter@55d8f6bb]
+2024-05-14T22:29:17.554-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-14T22:29:17.606-05:00 DEBUG 41220 --- [artist-service] [main] [                                                 ] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-14T22:29:18.095-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-05-14T22:29:18.134-05:00  INFO 41220 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Started ArtistServiceApplication in 7.409 seconds (process running for 8.445)
+2024-05-14T22:29:18.174-05:00  INFO 41220 --- [artist-service] [main] [01cdc16fbd330a3eb3d7cb08adc5c0ca-73f6f00eab0d45fc] d.a.a.a.s.i.ArtistServiceImpl            : Fetching all artists
+2024-05-14T22:29:18.181-05:00 DEBUG 41220 --- [artist-service] [main] [01cdc16fbd330a3eb3d7cb08adc5c0ca-73f6f00eab0d45fc] o.s.j.c.JdbcTemplate                     : Executing prepared SQL query
+2024-05-14T22:29:18.182-05:00 DEBUG 41220 --- [artist-service] [main] [01cdc16fbd330a3eb3d7cb08adc5c0ca-73f6f00eab0d45fc] o.s.j.c.JdbcTemplate                     : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-05-14T22:29:18.182-05:00 DEBUG 41220 --- [artist-service] [main] [01cdc16fbd330a3eb3d7cb08adc5c0ca-73f6f00eab0d45fc] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:29:18.657-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(4)-192.168.4.20] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:29:18.663-05:00  INFO 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-14T22:29:18.663-05:00  INFO 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-05-14T22:29:18.663-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2024-05-14T22:29:18.663-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2024-05-14T22:29:18.663-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2024-05-14T22:29:18.665-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1aee0712
+2024-05-14T22:29:18.666-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@481ac7c3
+2024-05-14T22:29:18.666-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-14T22:29:18.666-05:00  INFO 41220 --- [artist-service] [RMI TCP Connection(5)-192.168.4.20] [                                                 ] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2024-05-14T22:29:18.668-05:00 DEBUG 41220 --- [artist-service] [RMI TCP Connection(4)-192.168.4.20] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:29:23.048-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [eabbfbc05c77e37cda5aaaa219456e55-5e5cdf206ed4d580] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:23.062-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [eabbfbc05c77e37cda5aaaa219456e55-5e5cdf206ed4d580] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:23.091-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [eabbfbc05c77e37cda5aaaa219456e55-5e5cdf206ed4d580] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:23.091-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [eabbfbc05c77e37cda5aaaa219456e55-5e5cdf206ed4d580] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:23.096-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [eabbfbc05c77e37cda5aaaa219456e55-5e5cdf206ed4d580] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:27.924-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [5dd54a750d8ce6e0dc9d699c60173ea7-0242b0e5a0040dbc] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:27.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [5dd54a750d8ce6e0dc9d699c60173ea7-0242b0e5a0040dbc] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:27.937-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [5dd54a750d8ce6e0dc9d699c60173ea7-0242b0e5a0040dbc] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:27.937-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [5dd54a750d8ce6e0dc9d699c60173ea7-0242b0e5a0040dbc] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:27.941-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [5dd54a750d8ce6e0dc9d699c60173ea7-0242b0e5a0040dbc] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:32.923-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [566eafd143b8b2ef10cb6a7dbe27af09-e2795c4763f6b1eb] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:32.924-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [566eafd143b8b2ef10cb6a7dbe27af09-e2795c4763f6b1eb] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:32.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [566eafd143b8b2ef10cb6a7dbe27af09-e2795c4763f6b1eb] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:32.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [566eafd143b8b2ef10cb6a7dbe27af09-e2795c4763f6b1eb] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:32.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [566eafd143b8b2ef10cb6a7dbe27af09-e2795c4763f6b1eb] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:37.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [0729a2340a4149ae445b8d189aac3162-279d4328447394a0] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:37.931-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [0729a2340a4149ae445b8d189aac3162-279d4328447394a0] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:37.937-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [0729a2340a4149ae445b8d189aac3162-279d4328447394a0] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:37.937-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [0729a2340a4149ae445b8d189aac3162-279d4328447394a0] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:37.938-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [0729a2340a4149ae445b8d189aac3162-279d4328447394a0] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:42.922-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [f2ef82a91b399e7e6fb10fdbe1d4a094-0db346c34d51ee6a] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:42.922-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [f2ef82a91b399e7e6fb10fdbe1d4a094-0db346c34d51ee6a] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:42.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [f2ef82a91b399e7e6fb10fdbe1d4a094-0db346c34d51ee6a] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:42.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [f2ef82a91b399e7e6fb10fdbe1d4a094-0db346c34d51ee6a] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:42.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [f2ef82a91b399e7e6fb10fdbe1d4a094-0db346c34d51ee6a] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:47.921-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [87d13d90b26a34f9f196886a42526762-2976e612788a6219] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:47.921-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [87d13d90b26a34f9f196886a42526762-2976e612788a6219] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:47.925-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [87d13d90b26a34f9f196886a42526762-2976e612788a6219] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:47.925-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [87d13d90b26a34f9f196886a42526762-2976e612788a6219] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:47.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [87d13d90b26a34f9f196886a42526762-2976e612788a6219] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:52.922-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [d59bc575cdc750a8a9b7ca01f9a00bc9-81043ec4eb2f0c56] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:52.922-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [d59bc575cdc750a8a9b7ca01f9a00bc9-81043ec4eb2f0c56] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:52.925-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [d59bc575cdc750a8a9b7ca01f9a00bc9-81043ec4eb2f0c56] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:52.925-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [d59bc575cdc750a8a9b7ca01f9a00bc9-81043ec4eb2f0c56] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:52.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [d59bc575cdc750a8a9b7ca01f9a00bc9-81043ec4eb2f0c56] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:29:57.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [47ea9ce33c2fb5cb32f73376198f5fcf-7830a48f7cb65445] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:29:57.931-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [47ea9ce33c2fb5cb32f73376198f5fcf-7830a48f7cb65445] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:29:57.939-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [47ea9ce33c2fb5cb32f73376198f5fcf-7830a48f7cb65445] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:29:57.939-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [47ea9ce33c2fb5cb32f73376198f5fcf-7830a48f7cb65445] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:29:57.940-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [47ea9ce33c2fb5cb32f73376198f5fcf-7830a48f7cb65445] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:02.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [8428f9d1a0dca623e410635d1581a96f-1cea175a79289100] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:02.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [8428f9d1a0dca623e410635d1581a96f-1cea175a79289100] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:02.934-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [8428f9d1a0dca623e410635d1581a96f-1cea175a79289100] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:02.934-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [8428f9d1a0dca623e410635d1581a96f-1cea175a79289100] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:02.935-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [8428f9d1a0dca623e410635d1581a96f-1cea175a79289100] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:07.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-10] [a72e85e790a15d4278c4d84378ff0ceb-af9878217db30032] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:07.930-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-10] [a72e85e790a15d4278c4d84378ff0ceb-af9878217db30032] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:07.938-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-10] [a72e85e790a15d4278c4d84378ff0ceb-af9878217db30032] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:07.938-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-10] [a72e85e790a15d4278c4d84378ff0ceb-af9878217db30032] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:07.940-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-10] [a72e85e790a15d4278c4d84378ff0ceb-af9878217db30032] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:12.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [0d58781d65384816a9a2549fe1c8c6cf-c58f370c58d1f493] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:12.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [0d58781d65384816a9a2549fe1c8c6cf-c58f370c58d1f493] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:12.935-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [0d58781d65384816a9a2549fe1c8c6cf-c58f370c58d1f493] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:12.935-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [0d58781d65384816a9a2549fe1c8c6cf-c58f370c58d1f493] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:12.937-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-1] [0d58781d65384816a9a2549fe1c8c6cf-c58f370c58d1f493] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:17.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [3bd9a73d0049aaef0640f5b45744d5dd-7dce372d3bb4f19c] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:17.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [3bd9a73d0049aaef0640f5b45744d5dd-7dce372d3bb4f19c] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:17.933-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [3bd9a73d0049aaef0640f5b45744d5dd-7dce372d3bb4f19c] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:17.933-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [3bd9a73d0049aaef0640f5b45744d5dd-7dce372d3bb4f19c] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:17.935-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-2] [3bd9a73d0049aaef0640f5b45744d5dd-7dce372d3bb4f19c] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:22.924-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [0de8169c27871bf099cadd11d16cef16-7714f71869700ece] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:22.924-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [0de8169c27871bf099cadd11d16cef16-7714f71869700ece] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:22.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [0de8169c27871bf099cadd11d16cef16-7714f71869700ece] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:22.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [0de8169c27871bf099cadd11d16cef16-7714f71869700ece] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:22.931-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-3] [0de8169c27871bf099cadd11d16cef16-7714f71869700ece] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:27.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [cad9fe6e60f9ca11c4ac3038812adf61-4eef80379c5f47cc] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:27.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [cad9fe6e60f9ca11c4ac3038812adf61-4eef80379c5f47cc] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:27.935-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [cad9fe6e60f9ca11c4ac3038812adf61-4eef80379c5f47cc] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:27.935-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [cad9fe6e60f9ca11c4ac3038812adf61-4eef80379c5f47cc] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:27.936-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-4] [cad9fe6e60f9ca11c4ac3038812adf61-4eef80379c5f47cc] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:32.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [71eaad4c68c7e4822a8024fde35a8b7b-faa98ecbc7a85596] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:32.928-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [71eaad4c68c7e4822a8024fde35a8b7b-faa98ecbc7a85596] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:32.938-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [71eaad4c68c7e4822a8024fde35a8b7b-faa98ecbc7a85596] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:32.938-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [71eaad4c68c7e4822a8024fde35a8b7b-faa98ecbc7a85596] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:32.940-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-5] [71eaad4c68c7e4822a8024fde35a8b7b-faa98ecbc7a85596] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:37.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [c6233972f8a0c7420b9a0f2d0a3e60c2-f9302f713d57ac96] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:37.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [c6233972f8a0c7420b9a0f2d0a3e60c2-f9302f713d57ac96] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:37.932-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [c6233972f8a0c7420b9a0f2d0a3e60c2-f9302f713d57ac96] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:37.932-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [c6233972f8a0c7420b9a0f2d0a3e60c2-f9302f713d57ac96] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:37.933-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-6] [c6233972f8a0c7420b9a0f2d0a3e60c2-f9302f713d57ac96] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:42.926-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [490b19960d9db85c11ad6047ef2a9616-bf8e91b756b6ff1a] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:42.927-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [490b19960d9db85c11ad6047ef2a9616-bf8e91b756b6ff1a] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:42.936-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [490b19960d9db85c11ad6047ef2a9616-bf8e91b756b6ff1a] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:42.936-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [490b19960d9db85c11ad6047ef2a9616-bf8e91b756b6ff1a] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:42.937-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-7] [490b19960d9db85c11ad6047ef2a9616-bf8e91b756b6ff1a] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:47.924-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [b02c51c0b5c09c0b0a15501438553e0d-a761a2449c8e765d] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:47.925-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [b02c51c0b5c09c0b0a15501438553e0d-a761a2449c8e765d] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:47.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [b02c51c0b5c09c0b0a15501438553e0d-a761a2449c8e765d] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:47.929-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [b02c51c0b5c09c0b0a15501438553e0d-a761a2449c8e765d] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:47.930-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-8] [b02c51c0b5c09c0b0a15501438553e0d-a761a2449c8e765d] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:52.924-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [4aea43bcb3d586b166b423efc2470d7b-3ddaf746937d1aa9] o.s.w.s.DispatcherServlet                : GET "/actuator/prometheus", parameters={}
+2024-05-14T22:30:52.925-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [4aea43bcb3d586b166b423efc2470d7b-3ddaf746937d1aa9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2024-05-14T22:30:52.931-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [4aea43bcb3d586b166b423efc2470d7b-3ddaf746937d1aa9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/openmetrics-text;version=1.0.0;charset=utf-8' in response
+2024-05-14T22:30:52.931-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [4aea43bcb3d586b166b423efc2470d7b-3ddaf746937d1aa9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["# TYPE spring_security_filterchains_page_login_before counter<EOL># HELP spring_security_filterchains_pa (truncated)..."]
+2024-05-14T22:30:52.932-05:00 DEBUG 41220 --- [artist-service] [http-nio-8080-exec-9] [4aea43bcb3d586b166b423efc2470d7b-3ddaf746937d1aa9] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-05-14T22:30:55.886-05:00  INFO 41220 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-05-14T22:30:55.893-05:00  INFO 41220 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-05-14T22:39:43.246-05:00  INFO 41867 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 41867 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:39:43.246-05:00  INFO 41867 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:39:43.313-05:00  INFO 41867 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:39:44.266-05:00  INFO 41867 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2024-05-14T22:40:58.537-05:00  INFO 41949 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 41949 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:40:58.538-05:00  INFO 41949 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:40:58.639-05:00  INFO 41949 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:40:59.788-05:00  INFO 41949 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2024-05-14T22:42:53.183-05:00  INFO 42088 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 42088 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:42:53.186-05:00  INFO 42088 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:42:53.268-05:00  INFO 42088 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:42:53.931-05:00 ERROR 42088 --- [artist-service] [main] [                                                 ] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file /Users/anishpanthi/IdeaProjects/artist-service/compose.yaml --ansi never config --format=json' failed with exit code 15.
+
+Stdout:
+
+
+Stderr:
+empty compose file
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:96) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:80) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.hasDefinedServices(DefaultDockerCompose.java:71) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:111) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35) ~[spring-boot-docker-compose-3.2.5.jar:3.2.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$4(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:72) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:432) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:333) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13) ~[main/:?]
+
+2024-05-14T22:43:41.370-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 42155 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:43:41.371-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:43:43.409-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-05-14T22:43:43.427-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-05-14T22:43:43.427-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-14T22:43:43.487-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-05-14T22:43:43.487-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2074 ms
+2024-05-14T22:43:44.215-05:00 DEBUG 42155 --- [artist-service] [main] [                                                 ] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-14T22:43:44.279-05:00 DEBUG 42155 --- [artist-service] [main] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
+2024-05-14T22:43:44.282-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-05-14T22:43:45.447-05:00 ERROR 42155 --- [artist-service] [main] [                                                 ] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "admin"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.Driver.makeConnection(Driver.java:443) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.Driver.connect(Driver.java:297) ~[postgresql-42.6.2.jar:42.6.2]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:52) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13) ~[main/:?]
+
+2024-05-14T22:43:45.450-05:00  WARN 42155 --- [artist-service] [main] [                                                 ] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataLoader' defined in file [/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main/dev/app/artist/api/config/DataLoader.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'artistServiceImpl' defined in file [/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main/dev/app/artist/api/service/impl/ArtistServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute database script
+2024-05-14T22:43:45.457-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] i.o.s.t.SdkTracerProvider                : Calling shutdown() multiple times.
+2024-05-14T22:43:45.457-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] i.o.e.i.h.HttpExporter                   : Calling shutdown() multiple times.
+2024-05-14T22:43:45.460-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-05-14T22:43:45.462-05:00  WARN 42155 --- [artist-service] [main] [                                                 ] o.a.c.l.WebappClassLoaderBase            : The web application [ROOT] appears to have started a thread named [BatchSpanProcessor_WorkerThread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
+ java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435)
+ io.opentelemetry.sdk.trace.export.BatchSpanProcessor$Worker.run(BatchSpanProcessor.java:253)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2024-05-14T22:43:45.479-05:00  INFO 42155 --- [artist-service] [main] [                                                 ] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-05-14T22:43:45.513-05:00 ERROR 42155 --- [artist-service] [main] [                                                 ] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataLoader' defined in file [/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main/dev/app/artist/api/config/DataLoader.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'artistServiceImpl' defined in file [/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main/dev/app/artist/api/service/impl/ArtistServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute database script
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13) ~[main/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'artistServiceImpl' defined in file [/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main/dev/app/artist/api/service/impl/ArtistServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute database script
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 19 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Failed to execute database script
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 19 more
+Caused by: org.springframework.jdbc.datasource.init.UncategorizedScriptException: Failed to execute database script
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:67) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 19 more
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:52) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 19 more
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "admin"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.Driver.makeConnection(Driver.java:443) ~[postgresql-42.6.2.jar:42.6.2]
+	at org.postgresql.Driver.connect(Driver.java:297) ~[postgresql-42.6.2.jar:42.6.2]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:52) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 19 more
+
+2024-05-14T22:46:50.920-05:00  INFO 42338 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 42338 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
+2024-05-14T22:46:50.921-05:00  INFO 42338 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
+2024-05-14T22:46:50.996-05:00  INFO 42338 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
+2024-05-14T22:46:52.132-05:00  INFO 42338 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
