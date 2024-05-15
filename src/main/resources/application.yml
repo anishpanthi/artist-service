@@ -59,4 +59,8 @@ logging:
     org.springframework.jdbc: debug
   file:
     name: logs/artist-service.log
+
 #  config: classpath:log4j2.yml
+
+server.port: 8081
+
