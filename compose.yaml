@@ -30,17 +30,17 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
 
-  grafana:
-    image: 'grafana/grafana:latest'
-    container_name: 'grafana'
-    restart: unless-stopped
-    ports:
-      - '3000:3000'
-    volumes:
-      - ./data/grafana:/var/lib/grafana
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_SERVER_DOMAIN=localhost
+#  grafana:
+#    image: 'grafana/grafana:latest'
+#    container_name: 'grafana'
+#    restart: unless-stopped
+#    ports:
+#      - '3000:3000'
+#    volumes:
+#      - ./data/grafana:/var/lib/grafana
+#    environment:
+#      - GF_SECURITY_ADMIN_PASSWORD=admin
+#      - GF_SERVER_DOMAIN=localhost
 
   elastic:
     image: 'elasticsearch:7.17.21'
@@ -83,6 +83,17 @@ services:
 #      - logstash
     networks:
       - elk-network
+
+#  filebeat:
+#    image: 'elastic/filebeat:7.17.21'
+#    container_name: 'filebeat'
+#    restart: unless-stopped
+#    volumes:
+#      - ./src/main/resources/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:rw
+#      - /var/lib/docker/containers:/var/lib/docker/containers:rw
+#      - /var/run/docker.sock:/var/run/docker.sock:rw
+#      - ./data:/usr/share/filebeat/data:rw
+#    command: filebeat -e -strict.perms=false
 
 networks:
   elk-network:
