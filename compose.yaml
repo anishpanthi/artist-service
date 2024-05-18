@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     environment:
       - 'POSTGRES_DB=music'
-      - 'POSTGRES_PASSWORD=admin'
-      - 'POSTGRES_USER=admin'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
     ports:
       - '5431:5432'
 
@@ -30,20 +30,20 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
 
-#  grafana:
-#    image: 'grafana/grafana:latest'
-#    container_name: 'grafana'
-#    restart: unless-stopped
-#    ports:
-#      - '3000:3000'
-#    volumes:
-#      - ./data/grafana:/var/lib/grafana
-#    environment:
-#      - GF_SECURITY_ADMIN_PASSWORD=admin
-#      - GF_SERVER_DOMAIN=localhost
+  grafana:
+    image: 'grafana/grafana:latest'
+    container_name: 'grafana'
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SERVER_DOMAIN=localhost
 
   elastic:
-    image: 'elasticsearch:7.17.21'
+    image: 'elasticsearch:8.13.4'
     container_name: 'elasticsearch'
     restart: unless-stopped
     ports:
@@ -54,9 +54,11 @@ services:
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
 
   logstash:
-    image: 'logstash:7.17.21'
+    image: 'logstash:8.13.4'
     container_name: 'logstash'
     restart: unless-stopped
     ports:
@@ -68,33 +70,42 @@ services:
       - ./logs:/usr/share/logstash/logs
       - ./src/main/resources/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     command: [ "-f", "/usr/share/logstash/config/logstash.conf" ]
-#    depends_on:
-#      - elasticsearch
     networks:
       - elk-network
 
   kibana:
-    image: 'kibana:7.17.21'
+    image: 'kibana:8.13.4'
     container_name: 'kibana'
     restart: unless-stopped
     ports:
       - '5601:5601'
-#    depends_on:
-#      - logstash
     networks:
       - elk-network
 
-#  filebeat:
-#    image: 'elastic/filebeat:7.17.21'
-#    container_name: 'filebeat'
-#    restart: unless-stopped
-#    volumes:
-#      - ./src/main/resources/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:rw
-#      - /var/lib/docker/containers:/var/lib/docker/containers:rw
-#      - /var/run/docker.sock:/var/run/docker.sock:rw
-#      - ./data:/usr/share/filebeat/data:rw
-#    command: filebeat -e -strict.perms=false
+  elastic-apm:
+    image: 'elastic/apm-server:8.13.4'
+    container_name: 'apm-server'
+    user: apm-server
+    restart: unless-stopped
+    ports:
+      - '8200:8200'
+    volumes:
+      - ./src/main/resources/apm-server.docker.yml:/usr/share/apm-server/apm-server.yml:rw
+    networks:
+      - elk-network
+    environment:
+      - output.elasticsearch.hosts=["http://elasticsearch:9200"]
+      - setup.kibana.host=http://kibana:5601
+    command: >
+      apm-server -e
+      -E output.elasticsearch.hosts=["http://elasticsearch:9200"]
+      -E setup.kibana.host=http://kibana:5601
+      -E strict.perms=false
 
 networks:
   elk-network:
     driver: bridge
+
+volumes:
+  esdata:
+    driver: local

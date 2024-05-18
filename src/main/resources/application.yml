@@ -3,9 +3,9 @@ spring:
     name: artist-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/music
-    username: admin
-    password: admin
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
   docker:
     compose:
       lifecycle-management: start_only
@@ -51,6 +51,16 @@ management:
   otlp:
     tracing:
       endpoint: http://localhost:4318/v1/traces
+  elastic:
+    metrics:
+      export:
+        enabled: true
+  simple:
+    metrics:
+      export:
+        enabled: true
+        mode: step
+        step: 30s
 
 logging:
   level:
@@ -63,4 +73,3 @@ logging:
 #  config: classpath:log4j2.yml
 
 server.port: 8081
-
