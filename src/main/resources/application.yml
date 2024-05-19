@@ -51,16 +51,16 @@ management:
   otlp:
     tracing:
       endpoint: http://localhost:4318/v1/traces
-  elastic:
-    metrics:
-      export:
-        enabled: true
-  simple:
-    metrics:
-      export:
-        enabled: true
-        mode: step
-        step: 30s
+#  elastic:
+#    metrics:
+#      export:
+#        enabled: true
+#  simple:
+#    metrics:
+#      export:
+#        enabled: true
+#        mode: step
+#        step: 30s
 
 logging:
   level:

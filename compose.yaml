@@ -42,70 +42,62 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SERVER_DOMAIN=localhost
 
-  elastic:
-    image: 'elasticsearch:8.13.4'
-    container_name: 'elasticsearch'
-    restart: unless-stopped
-    ports:
-      - '9200:9200'
-      - '9300:9300'
-    networks:
-      - elk-network
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
+#  elastic:
+#    image: 'elasticsearch:8.13.4'
+#    container_name: 'elasticsearch'
+#    restart: unless-stopped
+#    ports:
+#      - '9200:9200'
+#      - '9300:9300'
+#    networks:
+#      - elk-network
+#    environment:
+#      - discovery.type=single-node
+#      - xpack.security.enabled=false
+#    volumes:
+#      - esdata:/usr/share/elasticsearch/data
+#
+#  logstash:
+#    image: 'logstash:8.13.4'
+#    container_name: 'logstash'
+#    restart: unless-stopped
+#    ports:
+#      - '5000:5000'
+#      - '9600:9600'
+#    volumes:
+#      - ./src/main/resources/logstash.yml:/usr/share/logstash/config/logstash.yml
+#      - ./src/main/resources:/usr/share/logstash/config
+#      - ./logs:/usr/share/logstash/logs
+#      - ./src/main/resources/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+#    command: [ "-f", "/usr/share/logstash/config/logstash.conf" ]
+#    networks:
+#      - elk-network
+#
+#  kibana:
+#    image: 'kibana:8.13.4'
+#    container_name: 'kibana'
+#    restart: unless-stopped
+#    ports:
+#      - '5601:5601'
+#    networks:
+#      - elk-network
 
-  logstash:
-    image: 'logstash:8.13.4'
-    container_name: 'logstash'
-    restart: unless-stopped
-    ports:
-      - '5000:5000'
-      - '9600:9600'
-    volumes:
-      - ./src/main/resources/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - ./src/main/resources:/usr/share/logstash/config
-      - ./logs:/usr/share/logstash/logs
-      - ./src/main/resources/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-    command: [ "-f", "/usr/share/logstash/config/logstash.conf" ]
-    networks:
-      - elk-network
+#  elastic-apm:
+#    image: 'elastic/apm-server:8.13.4'
+#    container_name: 'apm-server'
+#    user: apm-server
+#    restart: unless-stopped
+#    ports:
+#      - '8200:8200'
+#    volumes:
+#      - ./src/main/resources/apm-server.docker.yml:/usr/share/apm-server/apm-server.yml:rw
+#    networks:
+#      - elk-network
 
-  kibana:
-    image: 'kibana:8.13.4'
-    container_name: 'kibana'
-    restart: unless-stopped
-    ports:
-      - '5601:5601'
-    networks:
-      - elk-network
+#networks:
+#  elk-network:
+#    driver: bridge
 
-  elastic-apm:
-    image: 'elastic/apm-server:8.13.4'
-    container_name: 'apm-server'
-    user: apm-server
-    restart: unless-stopped
-    ports:
-      - '8200:8200'
-    volumes:
-      - ./src/main/resources/apm-server.docker.yml:/usr/share/apm-server/apm-server.yml:rw
-    networks:
-      - elk-network
-    environment:
-      - output.elasticsearch.hosts=["http://elasticsearch:9200"]
-      - setup.kibana.host=http://kibana:5601
-    command: >
-      apm-server -e
-      -E output.elasticsearch.hosts=["http://elasticsearch:9200"]
-      -E setup.kibana.host=http://kibana:5601
-      -E strict.perms=false
-
-networks:
-  elk-network:
-    driver: bridge
-
-volumes:
-  esdata:
-    driver: local
+#volumes:
+#  esdata:
+#    driver: local
