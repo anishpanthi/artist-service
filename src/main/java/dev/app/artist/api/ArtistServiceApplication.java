@@ -1,6 +1,7 @@
 package dev.app.artist.api;
 
-//import co.elastic.apm.attach.ElasticApmAttacher;
+import co.elastic.apm.attach.ElasticApmAttacher;
+
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.aop.ObservedAspect;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 public class ArtistServiceApplication {
 
   public static void main(String[] args) {
-//    ElasticApmAttacher.attach();
+    ElasticApmAttacher.attach();
     SpringApplication.run(ArtistServiceApplication.class, args);
   }
 

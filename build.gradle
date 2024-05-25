@@ -35,7 +35,8 @@ dependencies {
     implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
     implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'io.micrometer:micrometer-registry-elastic'
-//    implementation 'co.elastic.apm:apm-agent-attach:1.49.0'
+    implementation 'co.elastic.apm:apm-agent-attach:1.49.0'
+    implementation 'io.opentelemetry:opentelemetry-exporter-jaeger:1.34.1'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
