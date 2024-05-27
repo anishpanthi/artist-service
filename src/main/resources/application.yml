@@ -3,9 +3,9 @@ spring:
     name: artist-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/music
-    username: admin
-    password: admin
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
   docker:
     compose:
       lifecycle-management: start_only
@@ -18,5 +18,5 @@ spring:
 logging:
   level:
     root: info
-    org.springframework.web: debug
+    org.springframework.web: info
     org.springframework.jdbc: debug
