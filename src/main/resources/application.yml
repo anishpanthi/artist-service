@@ -3,9 +3,9 @@ spring:
     name: artist-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/music
-    username: admin
-    password: admin
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
   docker:
     compose:
       lifecycle-management: start_only
@@ -25,7 +25,7 @@ spring:
             client-secret: wxM8Q~SVxZnjHk._Xt480jiEf8pLbbKQHVIEcaWw
             client-name: Microsoft Entra ID (Azure AD)
             scope: openid, profile, email, offline_access
-            redirect-uri: http://localhost:8080/login/oauth2/code/azuread
+            redirect-uri: http://localhost:8081/login/oauth2/code/azure-entra
       resourceserver:
         jwt:
           issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
@@ -51,9 +51,25 @@ management:
   otlp:
     tracing:
       endpoint: http://localhost:4318/v1/traces
+#  elastic:
+#    metrics:
+#      export:
+#        enabled: true
+#  simple:
+#    metrics:
+#      export:
+#        enabled: true
+#        mode: step
+#        step: 30s
 
 logging:
   level:
     root: info
-    org.springframework.web: debug
+    org.springframework.web: info
     org.springframework.jdbc: debug
+  file:
+    name: logs/artist-service.log
+
+#  config: classpath:log4j2.yml
+
+server.port: 8081
