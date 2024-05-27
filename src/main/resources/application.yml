@@ -65,7 +65,7 @@ management:
 logging:
   level:
     root: info
-    org.springframework.web: debug
+    org.springframework.web: info
     org.springframework.jdbc: debug
   file:
     name: logs/artist-service.log
