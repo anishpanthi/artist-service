@@ -1,7 +1,0 @@
--javaagent:/Users/anishpanthi/IdeaProjects/artist-service/src/main/resources/elastic-apm-agent-1.39.0.jar
--Delastic.apm.service_name=artist-service
--Delastic.apm.secret_token=
--Delastic.apm.server_url=http://localhost:8200
--Delastic.apm.environment=my-local
--Delastic.apm.central_config=false
--Delastic.apm.application_packages=dev.app.artist.api

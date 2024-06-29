@@ -15,12 +15,12 @@ spec:
         app: artist-service
     spec:
       containers:
-      - name: artist-service
-        image: anishpanthi/artist-service:1.0
-        ports:
-        - containerPort: 8080
-        env:
-          - name:
+        - name: artist-service
+          image: anishpanthi/artist-service:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name:
 ---
 apiVersion: v1
 kind: Service
@@ -30,6 +30,6 @@ spec:
   selector:
     app: artist-service
   ports:
-  - protocol: TCP
-    port: 8080
-    targetPort: 8080
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

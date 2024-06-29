@@ -9,4 +9,6 @@ package dev.app.artist.api.entity;
  * @param origin
  * @author Anish
  */
-public record Artist(Long id, String name, String genre, String origin) {}
+public record Artist(Long id, String name, String genre, String origin) {
+
+}
