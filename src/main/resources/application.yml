@@ -51,6 +51,11 @@ management:
   otlp:
     tracing:
       endpoint: http://localhost:4318/v1/traces
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+
+
 #  elastic:
 #    metrics:
 #      export:
@@ -67,6 +72,7 @@ logging:
     root: info
     org.springframework.web: info
     org.springframework.jdbc: debug
+    org.springframework.security.oauth2: debug
   file:
     name: logs/artist-service.log
 

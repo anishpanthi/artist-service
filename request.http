@@ -1,10 +1,12 @@
 ### GET request to example server
 GET http://localhost:8080/api/artists
 Authorization: Bearer
+
 ###
 
 GET http://localhost:8080/api/artists/1
 Authorization: Bearer
+
 ###
 
 POST http://localhost:8080/api/artists
@@ -16,6 +18,7 @@ Authorization: Bearer
   "genre": "EDM",
   "origin": "France"
 }
+
 ###
 
 PUT http://localhost:8080/api/artists/3
@@ -27,6 +30,7 @@ Authorization: Bearer
   "genre": "EDM",
   "origin": "France"
 }
+
 ###
 
 DELETE http://localhost:8080/api/artists/2
