@@ -29,3 +29,67 @@ services:
     environment:
       - COLLECTOR_ZIPKIN_HTTP_PORT=9411
       - COLLECTOR_OTLP_ENABLED=true
+
+  elastic:
+    image: 'elasticsearch:8.14.1'
+    container_name: 'elasticsearch'
+    restart: unless-stopped
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    networks:
+      - elk-network
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+  logstash:
+    image: 'logstash:8.14.1'
+    container_name: 'logstash'
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+      - '9600:9600'
+    volumes:
+      - ./src/main/resources/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./src/main/resources:/usr/share/logstash/config
+      - ./logs:/usr/share/logstash/logs
+      - ./src/main/resources/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    command: [ "-f", "/usr/share/logstash/config/logstash.conf" ]
+    networks:
+      - elk-network
+
+  kibana:
+    image: 'kibana:8.14.1'
+    container_name: 'kibana'
+    restart: unless-stopped
+#    environment:
+    ports:
+      - '5601:5601'
+    networks:
+      - elk-network
+
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:8.14.1
+    container_name: 'apm-server'
+    restart: unless-stopped
+    ports:
+      - "8200:8200"
+    networks:
+      - elk-network
+    environment:
+      - ELASTIC_APM_SERVER_URL=http://apm-server:8200
+      - output.elasticsearch.hosts=["http://172.20.0.2:9200"]
+      - setup.kibana.host=http://kibana:5601
+    volumes:
+      - ./src/main/resources/apm-server.yml:/usr/share/apm-server/apm-server.yml
+
+networks:
+  elk-network:
+    driver: bridge
+
+volumes:
+  esdata:
+    driver: local
