@@ -39,5 +39,5 @@ src/main/.DS_Store
 .vscode/
 
 ### Junk Files ###
-docker-config/tempo-data/**
-logs/**
+docker-config/tempo-data/
+logs/

@@ -63,7 +63,7 @@ services:
   tempo:
     image: grafana/tempo:latest
     container_name: tempo
-    command: [ "-config.file=/etc/tempo.yaml" ]
+    command: [ "-config.file=/etc/tempo.yaml", "-reporting.enabled=false" ]
     volumes:
       - ./docker-config/tempo.yml:/etc/tempo.yaml:ro
       - ./docker-config/tempo-data:/tmp/tempo
