@@ -54,6 +54,13 @@ management:
     metrics:
       export:
         url: http://localhost:4318/v1/metrics
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+  observations:
+    key-values:
+      application: artist-service
 
 
 #  elastic:
