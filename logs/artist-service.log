@@ -1,39 +1,463 @@
-2024-06-29T19:41:58.229-05:00  INFO 38669 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 38669 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
-2024-06-29T19:41:58.231-05:00  INFO 38669 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
-2024-06-29T19:41:58.312-05:00  INFO 38669 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file '/Users/anishpanthi/IdeaProjects/artist-service/compose.yaml'
-2024-06-29T19:41:59.854-05:00  INFO 38669 --- [artist-service] [main] [                                                 ] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
-2024-06-29T19:44:56.643-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Starting ArtistServiceApplication using Java 21.0.1 with PID 38813 (/Users/anishpanthi/IdeaProjects/artist-service/build/classes/java/main started by anishpanthi in /Users/anishpanthi/IdeaProjects/artist-service)
-2024-06-29T19:44:56.645-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : No active profile set, falling back to 1 default profile: "default"
-2024-06-29T19:44:58.779-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8081 (http)
-2024-06-29T19:44:58.803-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardService                  : Starting service [Tomcat]
-2024-06-29T19:44:58.803-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.24]
-2024-06-29T19:44:58.876-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
-2024-06-29T19:44:58.876-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2178 ms
-2024-06-29T19:44:59.895-05:00 DEBUG 38813 --- [artist-service] [main] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
-2024-06-29T19:44:59.897-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
-2024-06-29T19:45:00.275-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54f373d4
-2024-06-29T19:45:00.277-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
-2024-06-29T19:45:00.281-05:00 DEBUG 38813 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : Executing SQL script from file [/Users/anishpanthi/IdeaProjects/artist-service/build/resources/main/schema.sql]
-2024-06-29T19:45:00.350-05:00 DEBUG 38813 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
-2024-06-29T19:45:00.353-05:00 DEBUG 38813 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
-2024-06-29T19:45:00.353-05:00 DEBUG 38813 --- [artist-service] [main] [                                                 ] o.s.j.d.i.ScriptUtils                    : Executed SQL script from file [/Users/anishpanthi/IdeaProjects/artist-service/build/resources/main/schema.sql] in 72 ms.
-2024-06-29T19:45:01.678-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 15 endpoints beneath base path '/actuator'
-2024-06-29T19:45:01.902-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@28e24663, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ee5c08d, org.springframework.security.web.context.SecurityContextHolderFilter@29a50a11, org.springframework.security.web.header.HeaderWriterFilter@138b9abe, org.springframework.web.filter.CorsFilter@f996445, org.springframework.security.web.csrf.CsrfFilter@486bcaa, org.springframework.security.web.authentication.logout.LogoutFilter@43e86c0c, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5f877009, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@18bf1bad, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@57bfca3a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@48697181, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@483fe83a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@337fb1a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4902c584, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7282f7b1, org.springframework.security.web.access.ExceptionTranslationFilter@3809f65d, org.springframework.security.web.access.intercept.AuthorizationFilter@77978658]
-2024-06-29T19:45:02.417-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8081 (http) with context path '/'
-2024-06-29T19:45:02.430-05:00  INFO 38813 --- [artist-service] [main] [                                                 ] d.a.a.a.ArtistServiceApplication         : Started ArtistServiceApplication in 6.362 seconds (process running for 7.902)
-2024-06-29T19:45:02.466-05:00  INFO 38813 --- [artist-service] [main] [ac9d3b831abc67a8f622c07a05b78d1e-937d2755617d4ab3] d.a.a.a.s.i.ArtistServiceImpl            : Fetching all artists
-2024-06-29T19:45:02.471-05:00 DEBUG 38813 --- [artist-service] [main] [ac9d3b831abc67a8f622c07a05b78d1e-937d2755617d4ab3] o.s.j.c.JdbcTemplate                     : Executing prepared SQL query
-2024-06-29T19:45:02.472-05:00 DEBUG 38813 --- [artist-service] [main] [ac9d3b831abc67a8f622c07a05b78d1e-937d2755617d4ab3] o.s.j.c.JdbcTemplate                     : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
-2024-06-29T19:45:02.472-05:00 DEBUG 38813 --- [artist-service] [main] [ac9d3b831abc67a8f622c07a05b78d1e-937d2755617d4ab3] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
-2024-06-29T19:45:03.071-05:00 DEBUG 38813 --- [artist-service] [RMI TCP Connection(2)-127.0.0.1] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
-2024-06-29T19:45:03.076-05:00  INFO 38813 --- [artist-service] [RMI TCP Connection(1)-127.0.0.1] [                                                 ] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-29T19:45:03.076-05:00  INFO 38813 --- [artist-service] [RMI TCP Connection(1)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
-2024-06-29T19:45:03.078-05:00  INFO 38813 --- [artist-service] [RMI TCP Connection(1)-127.0.0.1] [                                                 ] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
-2024-06-29T19:45:03.081-05:00 DEBUG 38813 --- [artist-service] [RMI TCP Connection(2)-127.0.0.1] [                                                 ] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
-2024-06-29T19:49:38.499-05:00 DEBUG 38813 --- [artist-service] [http-nio-8081-exec-3] [7702aa91f4debe74dd108bcc78cc8a0c-eb70033cc2c8a593] .s.o.c.w.OAuth2LoginAuthenticationFilter : Set SecurityContextHolder to OAuth2AuthenticationToken [Principal=Name: [YoUmUEcPaLyD3gPW0a3xBRdTXUEz442fnLRAzi87TEg], Granted Authorities: [[OIDC_USER, SCOPE_User.Read, SCOPE_email, SCOPE_openid, SCOPE_profile]], User Attributes: [{sub=YoUmUEcPaLyD3gPW0a3xBRdTXUEz442fnLRAzi87TEg, ver=2.0, aio=E2dgYLi3f8N8CZM67u0zLWMsGhh++pj+W9Vr0cWv1yctaFvRx8q7coauQb7BzJB47mnqLhb7AA==, iss=https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0, oid=a2747870-e379-4580-a052-b3993bb38253, preferred_username=app@anishpanthi41gmail.onmicrosoft.com, uti=gTeuFiiOJ028q2gcCWWKAQ, given_name=Anish, nonce=LSSDXX0aK7xaATH5IjwYRvUyStcgTL1KFrvoRESTsWo, picture=https://graph.microsoft.com/v1.0/me/photo/$value, tid=1b286c40-c2fd-46d5-a553-b6502b89f42d, aud=[3e9eced8-0b9d-4027-99fe-f986994aba8b], nbf=Sat Jun 29 19:44:37 CDT 2024, rh=0.ASkAQGwoG_3C1UalU7ZQK4n0LdjOnj6dCydAmf75hplKuov4AHo., name=Anish, exp=2024-06-30T01:49:37Z, family_name=Panthi, iat=2024-06-30T00:44:37Z}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=4BA6D680AAB952D46D8AA87FAC0AC558], Granted Authorities=[OIDC_USER, SCOPE_User.Read, SCOPE_email, SCOPE_openid, SCOPE_profile]]
-2024-06-29T19:49:38.578-05:00  INFO 38813 --- [artist-service] [http-nio-8081-exec-4] [fbc265dacc699ff7433926dd0eea3641-a0c9c1eafbabb1de] d.a.a.a.s.i.ArtistServiceImpl            : Fetching artist with id: 1
-2024-06-29T19:49:38.585-05:00 DEBUG 38813 --- [artist-service] [http-nio-8081-exec-4] [fbc265dacc699ff7433926dd0eea3641-a0c9c1eafbabb1de] o.s.j.c.JdbcTemplate                     : Executing prepared SQL query
-2024-06-29T19:49:38.585-05:00 DEBUG 38813 --- [artist-service] [http-nio-8081-exec-4] [fbc265dacc699ff7433926dd0eea3641-a0c9c1eafbabb1de] o.s.j.c.JdbcTemplate                     : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
-2024-06-29T19:49:38.585-05:00 DEBUG 38813 --- [artist-service] [http-nio-8081-exec-4] [fbc265dacc699ff7433926dd0eea3641-a0c9c1eafbabb1de] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
-2024-06-29T19:54:43.825-05:00  INFO 38813 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
-2024-06-29T19:54:43.830-05:00  INFO 38813 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-07-10T10:59:02.392-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Starting ArtistServiceApplication using Java 21 with PID 20536 (C:\Users\apanthi\IdeaProjects\artist-service\build\classes\java\main started by apanthi in C:\Users\apanthi\IdeaProjects\artist-service)
+2024-07-10T10:59:02.545-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-07-10T10:59:08.654-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-10T10:59:08.772-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T10:59:08.774-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-10T10:59:09.149-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-10T10:59:09.152-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6470 ms
+2024-07-10T10:59:11.741-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-10T10:59:12.246-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@631990cc
+2024-07-10T10:59:12.263-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-10T10:59:12.387-05:00 DEBUG 20536 --- [artist-service] [main] [                                                 ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T10:59:12.542-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd0bc5f3a362e4a034d6e56a792-2e4a034d6e56a792] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql]
+2024-07-10T10:59:12.654-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd0bc5f3a362e4a034d6e56a792-2e4a034d6e56a792] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-07-10T10:59:12.663-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd0bc5f3a362e4a034d6e56a792-2e4a034d6e56a792] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-07-10T10:59:12.670-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd0bc5f3a362e4a034d6e56a792-2e4a034d6e56a792] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql] in 127 ms.
+2024-07-10T10:59:13.864-05:00  WARN 20536 --- [artist-service] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2024-07-10T10:59:13.869-05:00  WARN 20536 --- [artist-service] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 2 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411)
+
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:830)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:691)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:49)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:68)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:40)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:297)
+	at okhttp3.internal.connection.RealConnection.connect(RealConnection.kt:207)
+	at okhttp3.internal.connection.ExchangeFinder.findConnection(ExchangeFinder.kt:226)
+	at okhttp3.internal.connection.ExchangeFinder.findHealthyConnection(ExchangeFinder.kt:106)
+	at okhttp3.internal.connection.ExchangeFinder.find(ExchangeFinder.kt:74)
+	at okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:255)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at io.opentelemetry.javaagent.shaded.instrumentation.okhttp.v3_0.internal.ConnectionErrorSpanInterceptor.intercept(ConnectionErrorSpanInterceptor.java:38)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at io.opentelemetry.javaagent.instrumentation.okhttp.v3_0.OkHttp3Singletons.lambda$static$2(OkHttp3Singletons.java:48)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)
+	at okhttp3.internal.connection.RealCall.execute(RealCall.kt:154)
+	at org.springframework.http.client.OkHttp3ClientHttpRequest.executeInternal(OkHttp3ClientHttpRequest.java:95)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:70)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
+	... 9 common frames omitted
+	Suppressed: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:9411
+		... 33 common frames omitted
+	Caused by: java.net.ConnectException: Connection refused: no further information
+		at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+		at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+		at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+		at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+		... 32 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+	... 32 common frames omitted
+
+2024-07-10T10:59:17.159-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2024-07-10T10:59:17.543-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20ebc899, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f1bf89a, org.springframework.security.web.context.SecurityContextHolderFilter@35c8dd30, org.springframework.security.web.header.HeaderWriterFilter@5e3d3bfd, org.springframework.web.filter.CorsFilter@59c4921f, org.springframework.security.web.csrf.CsrfFilter@5ecad860, org.springframework.security.web.authentication.logout.LogoutFilter@70d336f5, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7094dc0, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@426786ee, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@37630101, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7c095332, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@2d589ced, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c89afe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33df7a87, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d8f32a, org.springframework.security.web.access.ExceptionTranslationFilter@79ed43f8, org.springframework.security.web.access.intercept.AuthorizationFilter@35537fe]
+2024-07-10T10:59:18.734-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-07-10T10:59:18.760-05:00  INFO 20536 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Started ArtistServiceApplication in 18.568 seconds (process running for 29.618)
+2024-07-10T10:59:18.821-05:00  INFO 20536 --- [artist-service] [main] [668eafd6eb9dd37fd1f47c963f4927f7-d1f47c963f4927f7] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T10:59:18.835-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd6eb9dd37fd1f47c963f4927f7-d1f47c963f4927f7] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T10:59:18.837-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd6eb9dd37fd1f47c963f4927f7-d1f47c963f4927f7] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T10:59:18.837-05:00 DEBUG 20536 --- [artist-service] [main] [668eafd6eb9dd37fd1f47c963f4927f7-d1f47c963f4927f7] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:00:35.583-05:00  INFO 20536 --- [artist-service] [tomcat-handler-0] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-10T11:00:35.587-05:00  INFO 20536 --- [artist-service] [tomcat-handler-0] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-10T11:00:35.603-05:00  INFO 20536 --- [artist-service] [tomcat-handler-0] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2024-07-10T11:00:36.392-05:00  WARN 20536 --- [artist-service] [tomcat-handler-0] [668eb023bdd771971050477753a3b45c-8028c845ca5d79c4] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [127] milliseconds.
+2024-07-10T11:00:49.063-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-5] [668eb02f04151cac6b6b872ac6d37ea7-417bced42cb1d7ac] .s.o.c.w.OAuth2LoginAuthenticationFilter : Set SecurityContextHolder to OAuth2AuthenticationToken [Principal=Name: [YoUmUEcPaLyD3gPW0a3xBRdTXUEz442fnLRAzi87TEg], Granted Authorities: [[OIDC_USER, SCOPE_User.Read, SCOPE_email, SCOPE_openid, SCOPE_profile]], User Attributes: [{sub=YoUmUEcPaLyD3gPW0a3xBRdTXUEz442fnLRAzi87TEg, ver=2.0, aio=ATQAy/8XAAAARwY/yyBoDx+UthtCAAOGcRVw0QMp1byx7Hfty/7Amnfw9lXLJw+JYIp4CACaVgCr, iss=https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0, oid=a2747870-e379-4580-a052-b3993bb38253, preferred_username=app@anishpanthi41gmail.onmicrosoft.com, uti=niacvc6s8EidyMOiXDtoAA, given_name=Anish, nonce=O3YDG0F0MCm56E0-6AgOk7St8NKVvz1CeJzvGtVmkI4, picture=https://graph.microsoft.com/v1.0/me/photo/$value, tid=1b286c40-c2fd-46d5-a553-b6502b89f42d, aud=[3e9eced8-0b9d-4027-99fe-f986994aba8b], nbf=Wed Jul 10 10:55:47 CDT 2024, rh=0.ASkAQGwoG_3C1UalU7ZQK4n0LdjOnj6dCydAmf75hplKuov4AHo., name=Anish, exp=2024-07-10T17:00:47Z, family_name=Panthi, iat=2024-07-10T15:55:47Z}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=46459023C807A982A0C701403A10E98F], Granted Authorities=[OIDC_USER, SCOPE_User.Read, SCOPE_email, SCOPE_openid, SCOPE_profile]]
+2024-07-10T11:00:49.153-05:00  INFO 20536 --- [artist-service] [tomcat-handler-7] [668eb031dc155e43d7f861c7a422c1ba-c18bfc13126c5ae9] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:00:49.154-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-7] [668eb031dc155e43d7f861c7a422c1ba-c18bfc13126c5ae9] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:00:49.154-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-7] [668eb031dc155e43d7f861c7a422c1ba-c18bfc13126c5ae9] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:00:49.155-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-7] [668eb031dc155e43d7f861c7a422c1ba-c18bfc13126c5ae9] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:36.209-05:00  INFO 20536 --- [artist-service] [tomcat-handler-9] [668eb0d864a7a794552903cb379257ed-e9e4b930ffa09b41] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:36.211-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-9] [668eb0d864a7a794552903cb379257ed-e9e4b930ffa09b41] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:36.211-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-9] [668eb0d864a7a794552903cb379257ed-e9e4b930ffa09b41] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:36.212-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-9] [668eb0d864a7a794552903cb379257ed-e9e4b930ffa09b41] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:36.754-05:00  INFO 20536 --- [artist-service] [tomcat-handler-10] [668eb0d8134f5d9a9cc3030e447e74fd-aee54222901a3959] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:36.755-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-10] [668eb0d8134f5d9a9cc3030e447e74fd-aee54222901a3959] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:36.756-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-10] [668eb0d8134f5d9a9cc3030e447e74fd-aee54222901a3959] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:36.756-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-10] [668eb0d8134f5d9a9cc3030e447e74fd-aee54222901a3959] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:37.196-05:00  INFO 20536 --- [artist-service] [tomcat-handler-11] [668eb0d9f95151b125e07c322c10e21a-3ebd3d674965990a] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:37.197-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-11] [668eb0d9f95151b125e07c322c10e21a-3ebd3d674965990a] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:37.197-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-11] [668eb0d9f95151b125e07c322c10e21a-3ebd3d674965990a] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:37.198-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-11] [668eb0d9f95151b125e07c322c10e21a-3ebd3d674965990a] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:37.500-05:00  INFO 20536 --- [artist-service] [tomcat-handler-12] [668eb0d99aa2ebe7f002b55ffa8b05ea-709f0189d25ff8b6] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:37.501-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-12] [668eb0d99aa2ebe7f002b55ffa8b05ea-709f0189d25ff8b6] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:37.502-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-12] [668eb0d99aa2ebe7f002b55ffa8b05ea-709f0189d25ff8b6] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:37.504-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-12] [668eb0d99aa2ebe7f002b55ffa8b05ea-709f0189d25ff8b6] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:37.815-05:00  INFO 20536 --- [artist-service] [tomcat-handler-13] [668eb0d913cb542c1f98aaec6b3eb20b-079c10d8e04b370e] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:37.817-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-13] [668eb0d913cb542c1f98aaec6b3eb20b-079c10d8e04b370e] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:37.817-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-13] [668eb0d913cb542c1f98aaec6b3eb20b-079c10d8e04b370e] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:37.818-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-13] [668eb0d913cb542c1f98aaec6b3eb20b-079c10d8e04b370e] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:38.154-05:00  INFO 20536 --- [artist-service] [tomcat-handler-14] [668eb0daeea2ebe2005ff0b62917929f-19cc91c8832cc90f] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:38.156-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-14] [668eb0daeea2ebe2005ff0b62917929f-19cc91c8832cc90f] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:38.157-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-14] [668eb0daeea2ebe2005ff0b62917929f-19cc91c8832cc90f] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:38.159-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-14] [668eb0daeea2ebe2005ff0b62917929f-19cc91c8832cc90f] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:38.420-05:00  INFO 20536 --- [artist-service] [tomcat-handler-15] [668eb0da2c040ee9bea628cd35c93d4d-4188cbff13b20146] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:38.422-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-15] [668eb0da2c040ee9bea628cd35c93d4d-4188cbff13b20146] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:38.424-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-15] [668eb0da2c040ee9bea628cd35c93d4d-4188cbff13b20146] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:38.425-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-15] [668eb0da2c040ee9bea628cd35c93d4d-4188cbff13b20146] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:38.724-05:00  INFO 20536 --- [artist-service] [tomcat-handler-16] [668eb0daead87c1828ee6ec3d1b61534-a6f660e43cb33449] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:38.726-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-16] [668eb0daead87c1828ee6ec3d1b61534-a6f660e43cb33449] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:38.728-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-16] [668eb0daead87c1828ee6ec3d1b61534-a6f660e43cb33449] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:38.730-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-16] [668eb0daead87c1828ee6ec3d1b61534-a6f660e43cb33449] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:41.587-05:00  INFO 20536 --- [artist-service] [tomcat-handler-17] [668eb0dd3816c9b11a8865ea59929dc8-44acc84c826a23a9] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching artist with id: 1
+2024-07-10T11:03:41.595-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-17] [668eb0dd3816c9b11a8865ea59929dc8-44acc84c826a23a9] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:41.596-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-17] [668eb0dd3816c9b11a8865ea59929dc8-44acc84c826a23a9] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
+2024-07-10T11:03:41.596-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-17] [668eb0dd3816c9b11a8865ea59929dc8-44acc84c826a23a9] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:44.190-05:00  INFO 20536 --- [artist-service] [tomcat-handler-20] [668eb0e0576fe1b26bafc90af21a8f1e-ff49669453d7d9d7] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching artist with id: 2
+2024-07-10T11:03:44.191-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-20] [668eb0e0576fe1b26bafc90af21a8f1e-ff49669453d7d9d7] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:44.192-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-20] [668eb0e0576fe1b26bafc90af21a8f1e-ff49669453d7d9d7] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
+2024-07-10T11:03:44.195-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-20] [668eb0e0576fe1b26bafc90af21a8f1e-ff49669453d7d9d7] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:46.359-05:00  INFO 20536 --- [artist-service] [tomcat-handler-21] [668eb0e2a04c317c3c437493bbc999d5-f912bd5c9a6c3b23] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching artist with id: 3
+2024-07-10T11:03:46.360-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-21] [668eb0e2a04c317c3c437493bbc999d5-f912bd5c9a6c3b23] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:46.360-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-21] [668eb0e2a04c317c3c437493bbc999d5-f912bd5c9a6c3b23] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
+2024-07-10T11:03:46.361-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-21] [668eb0e2a04c317c3c437493bbc999d5-f912bd5c9a6c3b23] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:48.693-05:00  INFO 20536 --- [artist-service] [tomcat-handler-22] [668eb0e49ad3c4aa6fba9eefa8bb8d8d-886093ae8b5bbd7a] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching artist with id: 4
+2024-07-10T11:03:48.694-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-22] [668eb0e49ad3c4aa6fba9eefa8bb8d8d-886093ae8b5bbd7a] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:48.695-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-22] [668eb0e49ad3c4aa6fba9eefa8bb8d8d-886093ae8b5bbd7a] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
+2024-07-10T11:03:48.695-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-22] [668eb0e49ad3c4aa6fba9eefa8bb8d8d-886093ae8b5bbd7a] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:51.073-05:00  INFO 20536 --- [artist-service] [tomcat-handler-23] [668eb0e706fd8d30626a8d01bddc16ff-11305470fea5741b] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching artist with id: 5
+2024-07-10T11:03:51.074-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-23] [668eb0e706fd8d30626a8d01bddc16ff-11305470fea5741b] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:51.075-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-23] [668eb0e706fd8d30626a8d01bddc16ff-11305470fea5741b] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
+2024-07-10T11:03:51.075-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-23] [668eb0e706fd8d30626a8d01bddc16ff-11305470fea5741b] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:53.500-05:00  INFO 20536 --- [artist-service] [tomcat-handler-26] [668eb0e90fdf0ede51accaf67e4fe99e-dcc4950c69c7a529] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching artist with id: 6
+2024-07-10T11:03:53.501-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-26] [668eb0e90fdf0ede51accaf67e4fe99e-dcc4950c69c7a529] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:53.502-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-26] [668eb0e90fdf0ede51accaf67e4fe99e-dcc4950c69c7a529] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist WHERE id = ?]
+2024-07-10T11:03:53.502-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-26] [668eb0e90fdf0ede51accaf67e4fe99e-dcc4950c69c7a529] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:03:56.373-05:00  INFO 20536 --- [artist-service] [tomcat-handler-27] [668eb0ec07b8e11e385c603cbd571f11-329fe1f940baad05] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:03:56.373-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-27] [668eb0ec07b8e11e385c603cbd571f11-329fe1f940baad05] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:03:56.373-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-27] [668eb0ec07b8e11e385c603cbd571f11-329fe1f940baad05] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:03:56.374-05:00 DEBUG 20536 --- [artist-service] [tomcat-handler-27] [668eb0ec07b8e11e385c603cbd571f11-329fe1f940baad05] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:09:24.335-05:00  INFO 20536 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-10T11:09:24.418-05:00  INFO 20536 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-10T11:09:56.243-05:00 ERROR 24716 --- [artist-service] [main] [                                                 ] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.ConsoleAppender[console] - No encoder set for the appender named "console".
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.ConsoleAppender[console] - No encoder set for the appender named "console".
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:81)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 19 common frames omitted
+
+2024-07-10T11:12:16.504-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Starting ArtistServiceApplication using Java 21 with PID 27740 (C:\Users\apanthi\IdeaProjects\artist-service\build\classes\java\main started by apanthi in C:\Users\apanthi\IdeaProjects\artist-service)
+2024-07-10T11:12:16.523-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-07-10T11:12:20.458-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-10T11:12:20.513-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T11:12:20.514-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-10T11:12:20.660-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-10T11:12:20.661-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4048 ms
+2024-07-10T11:12:22.255-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-10T11:12:22.726-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@47a22020
+2024-07-10T11:12:22.744-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-10T11:12:22.854-05:00 DEBUG 27740 --- [artist-service] [main] [                                                 ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:12:22.981-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2e6cc9db0b425a87c4d44aad2c2-25a87c4d44aad2c2] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql]
+2024-07-10T11:12:23.083-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2e6cc9db0b425a87c4d44aad2c2-25a87c4d44aad2c2] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-07-10T11:12:23.086-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2e6cc9db0b425a87c4d44aad2c2-25a87c4d44aad2c2] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-07-10T11:12:23.092-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2e6cc9db0b425a87c4d44aad2c2-25a87c4d44aad2c2] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql] in 106 ms.
+2024-07-10T11:12:24.303-05:00  WARN 27740 --- [artist-service] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2024-07-10T11:12:24.309-05:00  WARN 27740 --- [artist-service] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 2 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411)
+
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:830)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:691)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:49)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:68)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:40)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:297)
+	at okhttp3.internal.connection.RealConnection.connect(RealConnection.kt:207)
+	at okhttp3.internal.connection.ExchangeFinder.findConnection(ExchangeFinder.kt:226)
+	at okhttp3.internal.connection.ExchangeFinder.findHealthyConnection(ExchangeFinder.kt:106)
+	at okhttp3.internal.connection.ExchangeFinder.find(ExchangeFinder.kt:74)
+	at okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:255)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at io.opentelemetry.javaagent.shaded.instrumentation.okhttp.v3_0.internal.ConnectionErrorSpanInterceptor.intercept(ConnectionErrorSpanInterceptor.java:38)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at io.opentelemetry.javaagent.instrumentation.okhttp.v3_0.OkHttp3Singletons.lambda$static$2(OkHttp3Singletons.java:48)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)
+	at okhttp3.internal.connection.RealCall.execute(RealCall.kt:154)
+	at org.springframework.http.client.OkHttp3ClientHttpRequest.executeInternal(OkHttp3ClientHttpRequest.java:95)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:70)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
+	... 9 common frames omitted
+	Suppressed: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:9411
+		... 33 common frames omitted
+	Caused by: java.net.ConnectException: Connection refused: no further information
+		at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+		at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+		at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+		at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+		... 32 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+	... 32 common frames omitted
+
+2024-07-10T11:12:26.580-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2024-07-10T11:12:26.903-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cdd3638, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5150ba5a, org.springframework.security.web.context.SecurityContextHolderFilter@645db77c, org.springframework.security.web.header.HeaderWriterFilter@34668a96, org.springframework.web.filter.CorsFilter@1bc90b56, org.springframework.security.web.csrf.CsrfFilter@303b9e6e, org.springframework.security.web.authentication.logout.LogoutFilter@2d154a38, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@66f18fa, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@52a3a9ef, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@27c510c5, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3fc544d6, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7e4257e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f6b4aaa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38c00fa1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7a6cd9e0, org.springframework.security.web.access.ExceptionTranslationFilter@3596c09d, org.springframework.security.web.access.intercept.AuthorizationFilter@3a5ecb62]
+2024-07-10T11:12:29.048-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-07-10T11:12:29.081-05:00  INFO 27740 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Started ArtistServiceApplication in 13.667 seconds (process running for 24.067)
+2024-07-10T11:12:29.153-05:00  INFO 27740 --- [artist-service] [main] [668eb2ed22a7ab1840fec197b2e104bf-40fec197b2e104bf] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:12:29.166-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2ed22a7ab1840fec197b2e104bf-40fec197b2e104bf] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:12:29.167-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2ed22a7ab1840fec197b2e104bf-40fec197b2e104bf] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:12:29.168-05:00 DEBUG 27740 --- [artist-service] [main] [668eb2ed22a7ab1840fec197b2e104bf-40fec197b2e104bf] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:13:09.636-05:00  INFO 27740 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-10T11:13:09.651-05:00  INFO 27740 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-10T11:13:22.576-05:00 ERROR 28028 --- [artist-service] [main] [                                                 ] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.classic.PatternLayout("null") - Empty or null pattern.
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.classic.PatternLayout("null") - Empty or null pattern.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:81)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 19 common frames omitted
+
+2024-07-10T11:18:58.849-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Starting ArtistServiceApplication using Java 21 with PID 10148 (C:\Users\apanthi\IdeaProjects\artist-service\build\classes\java\main started by apanthi in C:\Users\apanthi\IdeaProjects\artist-service)
+2024-07-10T11:18:58.870-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-07-10T11:19:03.447-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-10T11:19:03.497-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T11:19:03.498-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-10T11:19:03.622-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-10T11:19:03.623-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4642 ms
+2024-07-10T11:19:05.139-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-10T11:19:05.570-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55691a59
+2024-07-10T11:19:05.586-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-10T11:19:05.678-05:00 DEBUG 10148 --- [artist-service] [main] [                                                 ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:19:05.776-05:00 DEBUG 10148 --- [artist-service] [main] [668eb4790616acf2bb635df75ffa005e-bb635df75ffa005e] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql]
+2024-07-10T11:19:05.880-05:00 DEBUG 10148 --- [artist-service] [main] [668eb4790616acf2bb635df75ffa005e-bb635df75ffa005e] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-07-10T11:19:05.884-05:00 DEBUG 10148 --- [artist-service] [main] [668eb4790616acf2bb635df75ffa005e-bb635df75ffa005e] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-07-10T11:19:05.888-05:00 DEBUG 10148 --- [artist-service] [main] [668eb4790616acf2bb635df75ffa005e-bb635df75ffa005e] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql] in 109 ms.
+2024-07-10T11:19:07.025-05:00  WARN 10148 --- [artist-service] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2024-07-10T11:19:07.027-05:00  WARN 10148 --- [artist-service] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 2 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411)
+
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:830)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:691)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:49)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:68)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:40)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:9411
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:297)
+	at okhttp3.internal.connection.RealConnection.connect(RealConnection.kt:207)
+	at okhttp3.internal.connection.ExchangeFinder.findConnection(ExchangeFinder.kt:226)
+	at okhttp3.internal.connection.ExchangeFinder.findHealthyConnection(ExchangeFinder.kt:106)
+	at okhttp3.internal.connection.ExchangeFinder.find(ExchangeFinder.kt:74)
+	at okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:255)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at io.opentelemetry.javaagent.shaded.instrumentation.okhttp.v3_0.internal.ConnectionErrorSpanInterceptor.intercept(ConnectionErrorSpanInterceptor.java:38)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at io.opentelemetry.javaagent.instrumentation.okhttp.v3_0.OkHttp3Singletons.lambda$static$2(OkHttp3Singletons.java:48)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)
+	at okhttp3.internal.connection.RealCall.execute(RealCall.kt:154)
+	at org.springframework.http.client.OkHttp3ClientHttpRequest.executeInternal(OkHttp3ClientHttpRequest.java:95)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:70)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
+	... 9 common frames omitted
+	Suppressed: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:9411
+		... 33 common frames omitted
+	Caused by: java.net.ConnectException: Connection refused: no further information
+		at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+		at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+		at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+		at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+		... 32 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+	... 32 common frames omitted
+
+2024-07-10T11:19:08.672-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2024-07-10T11:19:08.990-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5150ba5a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1bc90b56, org.springframework.security.web.context.SecurityContextHolderFilter@60514b5, org.springframework.security.web.header.HeaderWriterFilter@686d5284, org.springframework.web.filter.CorsFilter@3fc544d6, org.springframework.security.web.csrf.CsrfFilter@4e75cf7c, org.springframework.security.web.authentication.logout.LogoutFilter@21be9ddc, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@33588b68, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@25d77b18, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6b981dea, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7a6cd9e0, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3ab8f900, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31e5554e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@239462d2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2eba2e9d, org.springframework.security.web.access.ExceptionTranslationFilter@da1382f, org.springframework.security.web.access.intercept.AuthorizationFilter@58c9bef9]
+2024-07-10T11:19:09.922-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-07-10T11:19:09.947-05:00  INFO 10148 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Started ArtistServiceApplication in 12.753 seconds (process running for 21.639)
+2024-07-10T11:19:10.027-05:00  INFO 10148 --- [artist-service] [main] [668eb47dbb83c583ba50c53ad62e5999-ba50c53ad62e5999] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:19:10.041-05:00 DEBUG 10148 --- [artist-service] [main] [668eb47dbb83c583ba50c53ad62e5999-ba50c53ad62e5999] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:19:10.043-05:00 DEBUG 10148 --- [artist-service] [main] [668eb47dbb83c583ba50c53ad62e5999-ba50c53ad62e5999] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:19:10.043-05:00 DEBUG 10148 --- [artist-service] [main] [668eb47dbb83c583ba50c53ad62e5999-ba50c53ad62e5999] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:20:59.720-05:00  INFO 10148 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-10T11:20:59.734-05:00  INFO 10148 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-10T11:22:50.936-05:00  INFO 432 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Starting ArtistServiceApplication using Java 21 with PID 432 (C:\Users\apanthi\IdeaProjects\artist-service\build\classes\java\main started by apanthi in C:\Users\apanthi\IdeaProjects\artist-service)
+2024-07-10T11:22:50.955-05:00  INFO 432 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-07-10T11:22:55.200-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-10T11:22:55.257-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T11:22:55.259-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-10T11:22:55.411-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-10T11:22:55.412-05:00  INFO 432 --- [artist-service] [main] [                                                 ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4360 ms
+2024-07-10T11:22:56.277-05:00  INFO 432 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-10T11:22:56.727-05:00  INFO 432 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d707885
+2024-07-10T11:22:56.741-05:00  INFO 432 --- [artist-service] [main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-10T11:22:56.835-05:00 DEBUG 432 --- [artist-service] [main] [                                                 ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:22:56.942-05:00 DEBUG 432 --- [artist-service] [main] [668eb5602eca87a6d57778abb512568a-d57778abb512568a] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql]
+2024-07-10T11:22:57.017-05:00 DEBUG 432 --- [artist-service] [main] [668eb5602eca87a6d57778abb512568a-d57778abb512568a] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-07-10T11:22:57.021-05:00 DEBUG 432 --- [artist-service] [main] [668eb5602eca87a6d57778abb512568a-d57778abb512568a] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-07-10T11:22:57.024-05:00 DEBUG 432 --- [artist-service] [main] [668eb5602eca87a6d57778abb512568a-d57778abb512568a] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql] in 79 ms.
+2024-07-10T11:22:59.592-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2024-07-10T11:22:59.856-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@aa9b6a8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@162304e3, org.springframework.security.web.context.SecurityContextHolderFilter@5b82e090, org.springframework.security.web.header.HeaderWriterFilter@411b4a70, org.springframework.web.filter.CorsFilter@3a94d716, org.springframework.security.web.csrf.CsrfFilter@6b96af8d, org.springframework.security.web.authentication.logout.LogoutFilter@276038e7, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4374c46e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4a8afff2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6cf782b6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3fbeaa03, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@b234301, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20a46430, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c0d92e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78e547aa, org.springframework.security.web.access.ExceptionTranslationFilter@17958999, org.springframework.security.web.access.intercept.AuthorizationFilter@2cce1da1]
+2024-07-10T11:23:00.812-05:00  INFO 432 --- [artist-service] [main] [                                                 ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-07-10T11:23:00.837-05:00  INFO 432 --- [artist-service] [main] [                                                 ] d.a.artist.api.ArtistServiceApplication  : Started ArtistServiceApplication in 11.193 seconds (process running for 19.955)
+2024-07-10T11:23:00.895-05:00  INFO 432 --- [artist-service] [main] [668eb564f8b71a7846527412a54161f3-46527412a54161f3] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-10T11:23:00.906-05:00 DEBUG 432 --- [artist-service] [main] [668eb564f8b71a7846527412a54161f3-46527412a54161f3] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-10T11:23:00.908-05:00 DEBUG 432 --- [artist-service] [main] [668eb564f8b71a7846527412a54161f3-46527412a54161f3] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-10T11:23:00.908-05:00 DEBUG 432 --- [artist-service] [main] [668eb564f8b71a7846527412a54161f3-46527412a54161f3] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-10T11:24:44.906-05:00  INFO 432 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-10T11:24:44.932-05:00  INFO 432 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-10T11:24:59.003-05:00 ERROR 17072 --- [artist-service] [main] [                                                 ] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.classic.PatternLayout("null") - Empty or null pattern.
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at dev.app.artist.api.ArtistServiceApplication.main(ArtistServiceApplication.java:13)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.classic.PatternLayout("null") - Empty or null pattern.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:282)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:260)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:81)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+	... 19 common frames omitted
+

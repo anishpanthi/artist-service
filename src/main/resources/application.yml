@@ -48,12 +48,6 @@ management:
   tracing:
     sampling:
       probability: 1.0
-  otlp:
-    tracing:
-      endpoint: http://localhost:4318/v1/traces
-    metrics:
-      export:
-        url: http://localhost:4318/v1/metrics
   metrics:
     distribution:
       percentiles-histogram:
@@ -61,18 +55,6 @@ management:
   observations:
     key-values:
       application: artist-service
-
-
-#  elastic:
-#    metrics:
-#      export:
-#        enabled: true
-#  simple:
-#    metrics:
-#      export:
-#        enabled: true
-#        mode: step
-#        step: 30s
 
 logging:
   level:
@@ -82,7 +64,5 @@ logging:
     org.springframework.security.oauth2: debug
   file:
     name: logs/artist-service.log
-
-#  config: classpath:log4j2.yml
 
 server.port: 8081

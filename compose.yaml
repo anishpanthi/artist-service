@@ -10,63 +10,10 @@ services:
     ports:
       - '5432:5432'
 
-  jaeger-tracing:
-    image: 'jaegertracing/all-in-one:latest'
-    container_name: 'jaeger'
-    restart: unless-stopped
+  lgtm:
+    image: grafana/otel-lgtm
+    container_name: 'lgtm'
     ports:
-      - '16686:16686'
       - '4317:4317'
       - '4318:4318'
-      - '5775:5775'
-      - '6831:6831/udp'
-      - '6832:6832/udp'
-      - '5778:5778'
-      - '14250:14250'
-      - '14268:14268'
-      - '14269:14269'
-      - '9411:9411'
-    environment:
-      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
-      - COLLECTOR_OTLP_ENABLED=true
-
-  prometheus:
-    image: prom/prometheus:main
-    container_name: prometheus
-    command:
-      - --enable-feature=exemplar-storage
-      - --config.file=/etc/prometheus/prometheus.yml
-    volumes:
-      - ./docker-config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-    ports:
-      - "9090:9090"
-
-  grafana:
-    image: grafana/grafana:main
-    container_name: grafana
-    volumes:
-      - ./docker-config:/etc/grafana/provisioning/datasources:ro
-    environment:
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-      - GF_AUTH_DISABLE_LOGIN_FORM=true
-    ports:
-      - "3000:3000"
-
-  loki:
-    image: grafana/loki:main
-    container_name: loki
-    command: [ "-config.file=/etc/loki/local-config.yaml" ]
-    ports:
-      - "3100:3100"
-
-  tempo:
-    image: grafana/tempo:latest
-    container_name: tempo
-    command: [ "-config.file=/etc/tempo.yaml", "-reporting.enabled=false" ]
-    volumes:
-      - ./docker-config/tempo.yml:/etc/tempo.yaml:ro
-      - ./docker-config/tempo-data:/tmp/tempo
-    ports:
-      - "3110:3100"  # Tempo
-      - "9411:9411" # zipkin
+      - '3000:3000'
