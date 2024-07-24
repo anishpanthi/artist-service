@@ -29,6 +29,9 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
+  threads:
+    virtual:
+      enabled: true
 
 # -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
 management:
@@ -54,18 +57,6 @@ management:
     metrics:
       export:
         url: http://localhost:4318/v1/metrics
-
-
-#  elastic:
-#    metrics:
-#      export:
-#        enabled: true
-#  simple:
-#    metrics:
-#      export:
-#        enabled: true
-#        mode: step
-#        step: 30s
 
 logging:
   level:
