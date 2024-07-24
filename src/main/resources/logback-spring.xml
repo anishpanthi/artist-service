@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <springProperty scope="context" name="LOG_PATH" source="log.path" defaultValue="C:\\Users\\apanthi\\IdeaProjects\\artist-service\\logs"/>
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
+    <springProperty scope='context' name="CONSOLE_LOG_PATTERN" source="logging.console.pattern"/>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!-- Minimum logging level to be presented in the console logs-->
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <springProfile name="local,dev">
+        <appender name="accessLogFileAppender4Dev" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOG_PATH}/artist-service.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/artist-service.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <maxFileSize>5MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
+            </rollingPolicy>
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <!-- Minimum logging level to be presented in the console logs-->
+                <level>DEBUG</level>
+            </filter>
+            <encoder>
+                <Pattern>
+                    %d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [${APP_NAME}] [%15.15t] [%X{traceId} %X{spanId}] %-40.40logger{39} : %m%n
+                </Pattern>
+            </encoder>
+        </appender>
+
+        <appender name="Async-accessLogFileAppender4Dev" class="ch.qos.logback.classic.AsyncAppender">
+            <appender-ref ref="accessLogFileAppender4Dev"/>
+        </appender>
+    </springProfile>
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="Async-accessLogFileAppender4Dev"/>
+    </root>
+
+    <springProfile name="local">
+        <logger name="dev.app.artist.api" level="DEBUG" additivity="false">
+            <appender-ref ref="consoleAppender"/>
+            <appender-ref ref="Async-accessLogFileAppender4Dev"/>
+        </logger>
+    </springProfile>
+</configuration>

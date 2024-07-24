@@ -59,6 +59,8 @@ management:
         url: http://localhost:4318/v1/metrics
 
 logging:
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} [${spring.application.name}] %clr([%15.15t]){faint} [%X{traceId} %X{spanId}] %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n'
   level:
     root: info
     org.springframework.web: info

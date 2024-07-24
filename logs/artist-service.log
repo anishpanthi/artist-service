@@ -37,3 +37,75 @@
 2024-06-29T19:49:38.585-05:00 DEBUG 38813 --- [artist-service] [http-nio-8081-exec-4] [fbc265dacc699ff7433926dd0eea3641-a0c9c1eafbabb1de] o.s.j.d.DataSourceUtils                  : Fetching JDBC Connection from DataSource
 2024-06-29T19:54:43.825-05:00  INFO 38813 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2024-06-29T19:54:43.830-05:00  INFO 38813 --- [artist-service] [SpringApplicationShutdownHook] [                                                 ] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-07-24 15:49:14.088  INFO 15548 --- [artist-service] [           main] [ ] d.a.artist.api.ArtistServiceApplication  : Starting ArtistServiceApplication using Java 21 with PID 15548 (C:\Users\apanthi\IdeaProjects\artist-service\build\classes\java\main started by apanthi in C:\Users\apanthi\IdeaProjects\artist-service)
+2024-07-24 15:49:14.089 DEBUG 15548 --- [artist-service] [           main] [ ] d.a.artist.api.ArtistServiceApplication  : Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-07-24 15:49:14.089  INFO 15548 --- [artist-service] [           main] [ ] d.a.artist.api.ArtistServiceApplication  : The following 1 profile is active: "local"
+2024-07-24 15:49:15.595  INFO 15548 --- [artist-service] [           main] [ ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-24 15:49:15.607  INFO 15548 --- [artist-service] [           main] [ ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-24 15:49:15.607  INFO 15548 --- [artist-service] [           main] [ ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-24 15:49:15.660  INFO 15548 --- [artist-service] [           main] [ ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-24 15:49:15.660  INFO 15548 --- [artist-service] [           main] [ ] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1526 ms
+2024-07-24 15:49:16.186 DEBUG 15548 --- [artist-service] [           main] [ ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-24 15:49:16.186  INFO 15548 --- [artist-service] [           main] [ ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-24 15:49:16.308  INFO 15548 --- [artist-service] [           main] [ ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5bde6148
+2024-07-24 15:49:16.309  INFO 15548 --- [artist-service] [           main] [ ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-24 15:49:16.312 DEBUG 15548 --- [artist-service] [           main] [ ] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql]
+2024-07-24 15:49:16.318 DEBUG 15548 --- [artist-service] [           main] [ ] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: create table if not exists artist ( id serial primary key, name varchar(200) not null, genre varchar(100) not null, origin varchar(500) not null )
+2024-07-24 15:49:16.319 DEBUG 15548 --- [artist-service] [           main] [ ] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '42P07', error code '0', message [relation "artist" already exists, skipping]
+2024-07-24 15:49:16.319 DEBUG 15548 --- [artist-service] [           main] [ ] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [C:\Users\apanthi\IdeaProjects\artist-service\build\resources\main\schema.sql] in 7 ms.
+2024-07-24 15:49:17.419  INFO 15548 --- [artist-service] [           main] [ ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoints beneath base path '/actuator'
+2024-07-24 15:49:17.528  INFO 15548 --- [artist-service] [           main] [ ] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b3ee43e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53da2aec, org.springframework.security.web.context.SecurityContextHolderFilter@5513a46b, org.springframework.security.web.header.HeaderWriterFilter@7f53a31f, org.springframework.web.filter.CorsFilter@18a38bba, org.springframework.security.web.csrf.CsrfFilter@1be427b4, org.springframework.security.web.authentication.logout.LogoutFilter@21ed4a51, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@62159fd, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2ae08750, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@fb42c1c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@58ca6ba3, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@54e680fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35d3202b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ad7a305, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74797b90, org.springframework.security.web.access.ExceptionTranslationFilter@2648aa1b, org.springframework.security.web.access.intercept.AuthorizationFilter@7348e75e]
+2024-07-24 15:49:17.895  INFO 15548 --- [artist-service] [           main] [ ] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-07-24 15:49:17.908  INFO 15548 --- [artist-service] [           main] [ ] d.a.artist.api.ArtistServiceApplication  : Started ArtistServiceApplication in 4.299 seconds (process running for 4.9)
+2024-07-24 15:49:17.939  INFO 15548 --- [artist-service] [           main] [8c3df5b0defdeccc7c723750bf2c5f0a 98fb6f6bbfa95298] d.a.a.a.service.impl.ArtistServiceImpl   : Fetching all artists
+2024-07-24 15:49:17.943 DEBUG 15548 --- [artist-service] [           main] [8c3df5b0defdeccc7c723750bf2c5f0a 98fb6f6bbfa95298] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL query
+2024-07-24 15:49:17.945 DEBUG 15548 --- [artist-service] [           main] [8c3df5b0defdeccc7c723750bf2c5f0a 98fb6f6bbfa95298] o.s.jdbc.core.JdbcTemplate               : Executing prepared SQL statement [SELECT id,name,genre,origin FROM artist]
+2024-07-24 15:49:17.945 DEBUG 15548 --- [artist-service] [           main] [8c3df5b0defdeccc7c723750bf2c5f0a 98fb6f6bbfa95298] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-24 15:49:18.064 DEBUG 15548 --- [artist-service] [2)-192.168.4.48] [ ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-24 15:49:18.067  INFO 15548 --- [artist-service] [3)-192.168.4.48] [ ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-24 15:49:18.067  INFO 15548 --- [artist-service] [3)-192.168.4.48] [ ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-24 15:49:18.068  INFO 15548 --- [artist-service] [3)-192.168.4.48] [ ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-24 15:49:18.073 DEBUG 15548 --- [artist-service] [2)-192.168.4.48] [ ] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-07-24 15:49:21.006 ERROR 15548 --- [artist-service] [alhost:4318/...] [ ] i.o.exporter.internal.http.HttpExporter  : Failed to export spans. The request could not be executed. Full error message: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:4318
+java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:4318
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:297)
+	at okhttp3.internal.connection.RealConnection.connect(RealConnection.kt:207)
+	at okhttp3.internal.connection.ExchangeFinder.findConnection(ExchangeFinder.kt:226)
+	at okhttp3.internal.connection.ExchangeFinder.findHealthyConnection(ExchangeFinder.kt:106)
+	at okhttp3.internal.connection.ExchangeFinder.find(ExchangeFinder.kt:74)
+	at okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:255)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:517)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:4318
+		... 19 common frames omitted
+	Caused by: java.net.ConnectException: Connection refused: no further information
+		at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+		at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+		at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+		at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+		... 18 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128)
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+	... 18 common frames omitted
