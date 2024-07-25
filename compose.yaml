@@ -65,7 +65,6 @@ services:
     image: 'kibana:8.14.1'
     container_name: 'kibana'
     restart: unless-stopped
-#    environment:
     ports:
       - '5601:5601'
     networks:
@@ -85,6 +84,47 @@ services:
       - setup.kibana.host=http://kibana:5601
     volumes:
       - ./src/main/resources/apm-server.yml:/usr/share/apm-server/apm-server.yml
+
+  prometheus:
+    image: prom/prometheus:main
+    container_name: prometheus
+    command:
+      - --enable-feature=exemplar-storage
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./docker-config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:main
+    container_name: grafana
+    volumes:
+      - ./docker-config:/etc/grafana/provisioning/datasources:ro
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    ports:
+      - "3000:3000"
+
+  loki:
+    image: grafana/loki:main
+    container_name: loki
+    command: [ "-config.file=/etc/loki/local-config.yaml" ]
+    ports:
+      - "3100:3100"
+
+  tempo:
+    image: grafana/tempo:latest
+    container_name: tempo
+    command: [ "-config.file=/etc/tempo.yaml", "-reporting.enabled=false" ]
+    volumes:
+      - ./docker-config/tempo.yml:/etc/tempo.yaml:ro
+      - ./docker-config/tempo-data:/tmp/tempo
+    ports:
+      - "3110:3100"  # Tempo
+      - "9411:9411" # zipkin
 
 networks:
   elk-network:
