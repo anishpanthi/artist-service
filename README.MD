@@ -10,13 +10,15 @@ This project is a microservice for managing artists, built with Java and Spring 
 - [Distributed Tracing with OpenTelemetry & Jaeger](#distributed-tracing-with-opentelemetry-jaeger)
 - [Distributed Tracing with Grafana Stack (Grafana, Loki, Tempo & Prometheus)](#distributed-tracing-with-grafana-stack)
 - [Docker Setup](#docker-setup)
-- [Endpoints](#endpoints)
+- [Endpoints](#endpoints) WIP...
+- [Asynchronous Logging with Logback](#asynchronous-logging-with-logback)
 
 ## Prerequisites
 
 - Java 21+
 - Gradle
 - Docker 
+- OIDC Configuration - Make sure to replace with your OIDC configuration in `application.yml` file.
 
 ## Installation
 
