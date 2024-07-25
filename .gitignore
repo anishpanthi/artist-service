@@ -40,4 +40,4 @@ src/main/.DS_Store
 
 ### Junk Files ###
 docker-config/tempo-data/
-logs/
+logs/artist-service.log

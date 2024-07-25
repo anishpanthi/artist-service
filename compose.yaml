@@ -126,10 +126,10 @@ services:
       - "3110:3100"  # Tempo
       - "9411:9411" # zipkin
 
-networks:
-  elk-network:
-    driver: bridge
+  networks:
+    elk-network:
+      driver: bridge
 
-volumes:
-  esdata:
-    driver: local
+  volumes:
+    esdata:
+      driver: local
