@@ -1,27 +1,27 @@
 ### GET request to example server
-GET http://localhost:8080/api/artists
+GET http://localhost:8081/api/artists
 Authorization: Bearer
 
 ###
 
-GET http://localhost:8080/api/artists/1
+GET http://localhost:8081/api/artists/4
 Authorization: Bearer
 
 ###
 
-POST http://localhost:8080/api/artists
+POST http://localhost:8081/api/artists
 Content-Type: application/json
 Authorization: Bearer
 
 {
-  "name": "David Guetta",
+  "name": "MORTEN",
   "genre": "EDM",
-  "origin": "France"
+  "origin": "Denmark"
 }
 
 ###
 
-PUT http://localhost:8080/api/artists/3
+PUT http://localhost:8080/api/artists/4
 Content-Type: application/json
 Authorization: Bearer
 
