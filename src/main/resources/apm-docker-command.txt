@@ -1,0 +1,1 @@
+docker run -d -p 8200:8200 --name=apm-server --user=apm-server --network=artist-service_elk-network --volume=".\artist-service\src\main\resources\apm-server.docker.yml:/usr/share/apm-server/apm-server.yml:ro" docker.elastic.co/apm/apm-server:8.14.1 --strict.perms=false -e -E output.elasticsearch.hosts=["localhost:9200"]
