@@ -8,7 +8,9 @@ group = 'dev.app'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '21'
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 repositories {
@@ -19,30 +21,32 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
-//    all*.exclude module: 'spring-boot-starter-logging'
+    all*.exclude module: 'spring-boot-starter-logging'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
-    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+    implementation 'net.ttddyy.observation:datasource-micrometer-spring-boot:1.0.5'
 
     // For Grafana Usages
-    implementation 'io.micrometer:micrometer-registry-prometheus'
-    implementation 'com.github.loki4j:loki-logback-appender:1.5.2'
-    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
-    implementation 'net.ttddyy.observation:datasource-micrometer-spring-boot:1.0.5'
+//    implementation 'io.micrometer:micrometer-registry-prometheus'
+//    implementation 'com.github.loki4j:loki-logback-appender:1.5.2'
+//    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 //    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
     runtimeOnly 'org.postgresql:postgresql'
+    implementation 'com.lmax:disruptor:3.4.4'   // For Async Logging using Log4j2
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
