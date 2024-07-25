@@ -33,16 +33,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
-    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
-
-    // For OpenTelemetry Usages (Jaeger, Zipkin, etc) - Default Implementation
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
+    implementation 'net.ttddyy.observation:datasource-micrometer-spring-boot:1.0.5'
 
     // For Grafana Usages
 //    implementation 'io.micrometer:micrometer-registry-prometheus'
 //    implementation 'com.github.loki4j:loki-logback-appender:1.5.2'
 //    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
-//    implementation 'net.ttddyy.observation:datasource-micrometer-spring-boot:1.0.5'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
