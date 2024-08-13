@@ -7,8 +7,8 @@ This project is a microservice for managing artists, built with Java and Spring 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Distributed Tracing with OpenTelemetry & Jaeger](#distributed-tracing-with-opentelemetry-jaeger)
-- [Distributed Tracing with Grafana Stack (Grafana, Loki, Tempo & Prometheus)](#distributed-tracing-with-grafana-stack)
+- [Distributed Tracing with OpenTelemetry & Jaeger](#distributed-tracing-with-opentelemetry--jaeger)
+- [Distributed Tracing with Grafana Stack (Grafana, Loki, Tempo & Prometheus)](#distributed-tracing-with-grafana-stack-grafana-loki-tempo--prometheus)
 - [Docker Setup](#docker-setup)
 - [Endpoints](#endpoints) WIP...
 - [Asynchronous Logging with Logback](#asynchronous-logging-with-logback)
