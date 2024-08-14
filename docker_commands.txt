@@ -1,0 +1,13 @@
+docker build -t anishpanthi/artist-service:1.0 -f docker-config/Dockerfile .
+
+
+docker push anishpanthi/artist-service:1.0
+
+
+docker run -d --name mypostgres --network as-network -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres postgres
+
+
+docker run -d --name jaeger --network as-network -p 14250:14250 -p 14268:14268 -p 14269:14269 -p 16686:16686 -p 4317:4317 -p 4318:4318 -p 5775:5775 -p 5778:5778 -p 6831:6831 -p 6832:6832 -p 9411:9411 jaegertracing/all-in-one:latest
+
+
+docker run -d --name artist-service --network as-network -p 8081:8081 anishpanthi/artist-service:1.0  --spring.profiles.active=docker

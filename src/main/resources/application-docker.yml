@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: artist-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://mypostgres:5432/postgres
+    username: postgres
+    password: postgres
+  docker:
+    compose:
+      lifecycle-management: start_only
+  sql:
+    init:
+      mode: always
+  security:
+    oauth2:
+      client:
+        provider:
+          azure-entra:
+            issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
+        registration:
+          azure-entra:
+            provider: azure-entra
+            client-id: 3e9eced8-0b9d-4027-99fe-f986994aba8b
+            client-secret: wxM8Q~SVxZnjHk._Xt480jiEf8pLbbKQHVIEcaWw
+            client-name: Microsoft Entra ID (Azure AD)
+            scope: openid, profile, email, offline_access
+            redirect-uri: http://localhost:8081/login/oauth2/code/azure-entra
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/1b286c40-c2fd-46d5-a553-b6502b89f42d/v2.0
+  threads:
+    virtual:
+      enabled: true
+
+# -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+management:
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+  observations:
+    key-values:
+      application: artist-service
+logging:
+  level:
+    root: info
+    org.springframework.web: info
+    org.springframework.jdbc: debug
+    org.springframework.security.oauth2: debug
+  file:
+    name: logs/artist-service.log
+
+#  config: classpath:log4j2.yml
+
+server.port: 8081
+otel:
+  exporter:
+    otlp:
+      metrics:
+        endpoint: http://jaeger:4318/v1/metrics
+        protocol: http/protobuf
+      traces:
+        endpoint: http://jaeger:4318/v1/traces
+        protocol: http/protobuf
